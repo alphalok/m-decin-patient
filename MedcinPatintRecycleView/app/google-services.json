@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "924232648626",
+    "firebase_url": "https://metp-11a7f-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "metp-11a7f",
+    "storage_bucket": "metp-11a7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:924232648626:android:6c1b349424e4c29b3646ab",
+        "android_client_info": {
+          "package_name": "com.example.medcinpatintrecycleview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "924232648626-tprdkfqtgjp1rlj3itmt1bvo8t3bt2lh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNrx6fqRwauIVxeSdC4F_-LST5RxWMPLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "924232648626-tprdkfqtgjp1rlj3itmt1bvo8t3bt2lh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
