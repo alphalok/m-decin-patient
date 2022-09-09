@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:layout_margin="10dp"
+    android:padding="50dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="10dp"
+    android:layout_centerInParent="true">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutP"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/patientphoto"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/nom2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/patientphoto"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="name"
+            android:textSize="20dp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/prenom2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nom2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="prenom"
+            android:textSize="20dp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/age2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/prenom2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="age"
+            android:textSize="20dp"
+            android:textStyle="bold|italic" />
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
