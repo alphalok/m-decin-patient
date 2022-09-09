@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "556284066759",
+    "firebase_url": "https://auth-a6405-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "auth-a6405",
+    "storage_bucket": "auth-a6405.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556284066759:android:872005b6bcbd98433b77e2",
+        "android_client_info": {
+          "package_name": "com.example.authentifationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556284066759-l7vlicprfsdl1bbo7bue7j0gjgrmkqok.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDeQQNpQaycEfuC-wBQvxtmRtD7AWLHQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556284066759-l7vlicprfsdl1bbo7bue7j0gjgrmkqok.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
