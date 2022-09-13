@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfileActivity"
+    android:background="@color/Blue_dark">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/patientsRecycleView"
@@ -25,13 +26,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:text="Add Patient"
-        app:layout_constraintEnd_toEndOf="@+id/patientsRecycleView"
-        app:layout_constraintStart_toStartOf="@+id/patientsRecycleView"
-        app:layout_constraintTop_toBottomOf="@+id/patientsRecycleView"
-        android:textColor="@color/white"
         android:backgroundTint="@color/teal_200"
+        android:text="Add Patient"
+        android:textColor="@color/white"
+        android:textSize="15dp"
         android:textStyle="bold|italic"
-        android:textSize="15dp"/>
+        app:layout_constraintEnd_toEndOf="@+id/patientsRecycleView"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="@+id/patientsRecycleView"
+        app:layout_constraintTop_toBottomOf="@+id/patientsRecycleView" />
+
+    <Button
+        android:id="@+id/singOutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/teal_200"
+        android:layout_marginTop="80dp"
+        android:text="Sing out"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addPatientBtn"
+        app:layout_constraintTop_toBottomOf="@+id/patientsRecycleView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,9 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,17 +30,27 @@ import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private Button addPatientBtn;
+    private Button addPatientBtn,singoutBtn;
 
 
     private DatabaseReference database;
     private PatientAdapter adapter ;
     private ArrayList<Patient> patients;
+    private ArrayList<String> PatientCin;
+
     private FirebaseUser user;
 
     private RelativeLayout parent;
     private RecyclerView recyclerView;
 
+    private FirebaseAuth auth;
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         addPatientBtn = findViewById(R.id.addPatientBtn);
+        singoutBtn = findViewById(R.id.singOutBtn);
 
         recyclerView = findViewById(R.id.patientsRecycleView);
         parent = findViewById(R.id.relativeLayoutP);
@@ -53,44 +67,32 @@ public class ProfileActivity extends AppCompatActivity {
 
         patients= new ArrayList<Patient>();
 
+        auth =FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new PatientAdapter(this);
+        adapter.setPatients(patients);
+        recyclerView.setAdapter(adapter);
 
+        PatientCin = medecinCinPatient(user.getUid());
 
-
-        database.addValueEventListener(new ValueEventListener() {
+        database.child("patients").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.child("medecins").child(user.getUid()).child("medcinPatients").exists()){
-                    ArrayList<String> PatientCin = new ArrayList<String>();
-                    for(DataSnapshot dataSnapshot : snapshot.child("medecins").child(user.getUid()).child("medcinPatients").getChildren()){
-
-                        PatientCin.add(String.valueOf(dataSnapshot.getValue()));
-
+                for(String cin : PatientCin){
+                    if(snapshot.child(cin).exists()){
+                        Patient patient = snapshot.child(cin).getValue(Patient.class);
+                        patients.add(patient);
                     }
-                    for(String cin : PatientCin){
-                        if(snapshot.child("patients").child(cin).exists()){
-                            Patient patient = snapshot.child("patients").child(cin).getValue(Patient.class);
-                            patients.add(patient);
-                        }
-                        else {
-                            Toast.makeText(ProfileActivity.this, "FFFaild", Toast.LENGTH_SHORT).show();
-                        }
-
+                    else{
                     }
-
-                    adapter.setPatients(patients);
-                    adapter.notifyDataSetChanged();
                 }
-                else {
-                    Log.d("tag", "probleme");
-                }
-
+                adapter.setPatients(patients);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
 
             }
         });
@@ -98,12 +100,17 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
-        adapter = new PatientAdapter(this);
-        adapter.setPatients(patients);
 
-        recyclerView.setAdapter(adapter);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        singoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                auth.signOut();
+                startActivity(new Intent(ProfileActivity.this,MainActivity.class));
+                finish();
+
+            }
+        });
 
 
         addPatientBtn.setOnClickListener(new View.OnClickListener() {
@@ -111,10 +118,110 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(new Intent(ProfileActivity.this,AddPatientActivity.class));
                 startActivity(intent);
+                finish();
 
             }
         });
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
+        getMenuInflater().inflate(R.menu.sherach,menu);
+        MenuItem menuItem = menu.findItem(R.id.search);
+
+        SearchView searchView = (SearchView)menuItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                txtSearch(s);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                txtSearch(s);
+                return false;
+            }
+        });
+
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void txtSearch(String fullName){
+
+        patients= new ArrayList<Patient>();
+        adapter = new PatientAdapter(this);
+        adapter.setPatients(patients);
+        recyclerView.setAdapter(adapter);
+
+        database.child("patients").orderByChild("fullname").startAt(fullName).endAt(fullName+"~").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Patient patient = dataSnapshot.getValue(Patient.class);
+                    if(PatientCin.contains(patient.getCin())){
+                        patients.add(patient);
+                    }
+                }
+                adapter.setPatients(patients);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+    }
+
+    private ArrayList<String> medecinCinPatient(String medecinUid){
+        ArrayList<String> patientCin = new ArrayList<String>();
+        database.child("medecins").child(medecinUid).child("medcinPatients").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    patientCin.add(String.valueOf(dataSnapshot.getValue()));
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        return patientCin;
+    }
+
+    private ArrayList<Patient> medecinPatient(ArrayList<String>patientsCin){
+        ArrayList<Patient> patients =new ArrayList<Patient>();
+        database.child("patients").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(String cin : patientsCin){
+                    if(snapshot.child(cin).exists()){
+                        Patient patient = snapshot.child(cin).getValue(Patient.class);
+                        patients.add(patient);
+                    }
+                    else{
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        return patients;
+    }
+
+
 }
+
+//todo make shure that when the user press back button he dosen't quite the app but show him a toast that are you sure you want to quit
 
 

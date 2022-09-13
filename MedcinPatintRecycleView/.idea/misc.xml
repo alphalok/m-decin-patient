@@ -3,12 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_add_patient.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/drawable/custtom_button_back.xml" value="0.266" />
+        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/drawable/progress_back.xml" value="0.266" />
+        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_add_patient.xml" value="0.33" />
+        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_main.xml" value="0.32664756446991405" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_patient_profile.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_patient_register.xml" value="0.33" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_profile.xml" value="0.25" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/patientitem.xml" value="0.33" />
+        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/menu/sherach.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

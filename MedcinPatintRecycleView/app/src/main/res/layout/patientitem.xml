@@ -9,7 +9,8 @@
     android:padding="50dp"
     app:cardCornerRadius="20dp"
     app:cardElevation="20dp"
-    android:layout_centerInParent="true">
+    android:layout_centerInParent="true"
+    android:background="@color/white">
 
     <RelativeLayout
         android:id="@+id/relativeLayoutP"

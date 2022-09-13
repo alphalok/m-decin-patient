@@ -4,6 +4,8 @@
     package="com.example.medcinpatintrecycleview">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -16,11 +18,29 @@
         android:theme="@style/Theme.MedcinPatintRecycleView"
         tools:targetApi="31">
         <activity
+            android:name=".PatientRegisterActivity"
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="medcinetpatient.page.link"
+                    android:scheme="https" />
+            </intent-filter>
+
+
+        </activity>
+        <activity
             android:name=".PatientProfileActivity"
             android:exported="false" />
         <activity
             android:name=".AddPatientActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />

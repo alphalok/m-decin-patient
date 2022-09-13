@@ -104,57 +104,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        //todo
-/*
-        reference = FirebaseDatabase.getInstance().getReference().child("Users").child("medecins");
-        reference.orderByChild("emai").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    isMedecin = true;
-                }
-                else{
-                    isMedecin = false;
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-*/
-/*
-        Query query = reference.orderByChild("emai").equalTo(email);
-        ValueEventListener eventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    isMedecin = true;
-                }
-                else{
-                    isMedecin = false;
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        };
-        query.addListenerForSingleValueEvent(eventListener);
-
- */
-/*
-        if((userStatus.getCheckedRadioButtonId() == R.id.MedecinBtn && !isMedecin)||(isMedecin && userStatus.getCheckedRadioButtonId() == R.id.PatientBtn)){
-            Toast.makeText(this, "User not found", Toast.LENGTH_SHORT).show();
-            return;
-        }
-*/
-
-
-
 
         progressBar.setVisibility(View.VISIBLE);
 
@@ -163,8 +112,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-                    //todo
 
                     reference = FirebaseDatabase.getInstance().getReference().child("Users").child("patients");
 
@@ -220,25 +167,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         return;
                     }
 
-
-
-/*
-                    if(user.isEmailVerified()){
-                        if(userStatus.getCheckedRadioButtonId() == R.id.MedecinBtn  ){
-                            startActivity(new Intent(MainActivity.this,ProfileActivity.class));
-                        }
-                        else {
-                            startActivity(new Intent(MainActivity.this,PatientProfileActivity.class));
-                        }
-
-                    }
-                    else{
-                        user.sendEmailVerification();
-                        Toast.makeText(MainActivity.this, "Email Not verifid check your email", Toast.LENGTH_SHORT).show();
-                    }
-
- */
-
                 }
                 else{
                     Toast.makeText(MainActivity.this, "faild to sign in", Toast.LENGTH_LONG).show();
@@ -256,11 +184,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onStart() {
         super.onStart();
         if(auth.getCurrentUser() != null){
+            progressBar.setVisibility(View.VISIBLE);
 
-
-            //todo
+            reference = FirebaseDatabase.getInstance().getReference().child("Users").child("patients");
+            reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(checkUserIfIsPatient(auth.getCurrentUser().getEmail(),snapshot) == true){
+                        startActivity(new Intent(MainActivity.this,PatientProfileActivity.class));
+                        progressBar.setVisibility(View.GONE);
+                        finish();
+                    }
+                    else{
+                        startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+                        progressBar.setVisibility(View.GONE);
+                        finish();
+                    }
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                }
+            });
         }
     }
+
+
 /////////////////////// cheking i the uesr is a Patient or not /////////////////////////////
     public boolean checkUserIfIsPatient(String email,DataSnapshot dataSnapshot){
         Patient patient = new Patient();
@@ -270,11 +218,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             patient.setEmai(ds.getValue(Patient.class).getEmai());
             if(patient.getEmai().equals(email)){
-                Log.d("tag ", "does not exisste");
+                Log.d("tag ", "does exisste");
                 return true;
             }
         }
-        Log.d("tag ", "does  exisste");
+        Log.d("tag ", "does not  exisste");
         return false;
 
     }

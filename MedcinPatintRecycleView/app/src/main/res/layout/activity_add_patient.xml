@@ -1,72 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterActivity"
+    android:background="@color/Blue_dark"
+    >
 
     <EditText
         android:id="@+id/editTextPatientFullName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/editTextPatientCIN"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
         android:ems="10"
-        android:hint="Full Name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/editTextPatientCIN"
-        app:layout_constraintStart_toStartOf="@+id/editTextPatientCIN"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPatientCIN" />
-
-    <EditText
-        android:id="@+id/editTextPatientAge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Age"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPatientFullName" />
-
-    <EditText
-        android:id="@+id/editTextPatientRegistationEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/editTextPatientAge"
-        app:layout_constraintStart_toStartOf="@+id/editTextPatientAge"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPatientAge" />
+        android:hint="numéro de téléphone"
+        android:inputType="number"
+        android:textSize="18sp"
+        android:padding="5dp"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white" />
 
     <Button
         android:id="@+id/patientRegisterBtn"
-        android:layout_width="156dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="50dp"
-        android:text="Register"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:backgroundTint="@color/teal_200"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPatientRegistratonPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPatientRegistratonPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPatientRegistratonPassword" />
-
-    <EditText
-        android:id="@+id/editTextTextPatientRegistratonPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/editTextPatientRegistationEmail"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextPatientRegistationEmail"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPatientRegistationEmail" />
+        android:layout_below="@+id/editTextPatientFullName"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/custtom_button_back"
+        android:text="Enregistrer "
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
     <ProgressBar
         android:id="@+id/patientProgressBar"
@@ -74,20 +44,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/progress_back"
+        />
 
     <EditText
         android:id="@+id/editTextPatientCIN"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="18sp"
         android:ems="10"
         android:hint="CIN"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:inputType="text"
+        android:padding="5dp"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white" />
+</RelativeLayout>

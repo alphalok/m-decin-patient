@@ -5,13 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:backgroundTint="@color/teal_700">
+    android:background="@color/Blue_dark">
+
+
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
         android:ems="10"
+        android:textSize="18sp"
+        android:padding="5dp"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
         android:hint="Email"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
@@ -41,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="register"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="@+id/loginBtn"
@@ -59,15 +69,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="mot de pass oublié?"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/testViewRegister"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
     <EditText
         android:id="@+id/editTextPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
         android:ems="10"
+        android:textSize="18sp"
+        android:padding="5dp"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
         android:hint="Passworrd"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/loginBtn"
@@ -82,6 +100,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/progress_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,11 +118,14 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
         android:orientation="horizontal">
 
+
         <RadioButton
             android:id="@+id/PatientBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Patient"
+            android:textSize="15sp"
+            android:textColor="@color/white"
             android:checked="true"
             android:textStyle="bold|italic"
             android:layout_marginRight="10dp"/>
@@ -111,6 +135,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Medecin"
+            android:textSize="15sp"
+            android:textColor="@color/white"
             android:textStyle="italic|bold"/>
     </RadioGroup>
 

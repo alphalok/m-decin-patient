@@ -4,69 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
+    tools:context=".PatientRegisterActivity"
     android:background="@color/Blue_dark">
 
 
     <EditText
-        android:id="@+id/editTextFullName"
+        android:id="@+id/editTextPatientFullName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:textSize="18sp"
-        android:padding="5dp"
-        android:textColorHint="@color/white"
-        app:hintTextColor="@color/white"
         android:hint="Full Name"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/editTextCIN"
-        app:layout_constraintStart_toStartOf="@+id/editTextCIN"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCIN" />
+        android:textSize="18sp"
+        android:padding="5dp"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPatientCIN"
+        app:layout_constraintStart_toStartOf="@+id/editTextPatientCIN"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPatientCIN" />
 
     <EditText
-        android:id="@+id/editTextAge"
+        android:id="@+id/editTextPatientAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:textSize="18sp"
-        android:padding="5dp"
-        android:textColorHint="@color/white"
-        app:hintTextColor="@color/white"
         android:hint="Age"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFullName" />
+        android:padding="5dp"
+        android:textColorHint="@color/white"
+        android:textSize="18sp"
+        app:hintTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPatientFullName"
+        app:layout_constraintStart_toStartOf="@+id/editTextPatientFullName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPatientFullName"
+        />
 
     <EditText
-        android:id="@+id/editTextRegistationEmail"
+        android:id="@+id/editTextPatRegistEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:textSize="18sp"
-        android:padding="5dp"
-        android:textColorHint="@color/white"
-        app:hintTextColor="@color/white"
         android:hint="Email"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/editTextAge"
-        app:layout_constraintStart_toStartOf="@+id/editTextAge"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAge" />
-
-
-
+        android:padding="5dp"
+        android:textColorHint="@color/white"
+        android:textSize="18sp"
+        app:hintTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPatientAge"
+        app:layout_constraintStart_toStartOf="@+id/editTextPatientAge"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPatientAge" />
 
     <Button
-        android:id="@+id/registerBtn"
+        android:id="@+id/patientRegistBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -74,41 +72,40 @@
         android:layout_marginEnd="20dp"
         android:background="@drawable/custtom_button_back"
         android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:text="Register"
         android:textSize="18sp"
-        android:backgroundTint="@color/teal_200"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextRegistratonPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextRegistratonPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextRegistratonPassword" />
+        android:text="Register"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purple_500"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPatRegistPassword"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPatRegistPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPatRegistPassword" />
 
     <EditText
-        android:id="@+id/editTextTextRegistratonPassword"
+        android:id="@+id/editTextTextPatRegistPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:textSize="18sp"
-        android:padding="5dp"
-        android:textColorHint="@color/white"
-        app:hintTextColor="@color/white"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/editTextRegistationEmail"
+        android:padding="5dp"
+        android:textColorHint="@color/white"
+        android:textSize="18sp"
+        app:hintTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPatRegistEmail"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextRegistationEmail"
-        app:layout_constraintTop_toBottomOf="@+id/editTextRegistationEmail" />
+        app:layout_constraintStart_toStartOf="@+id/editTextPatRegistEmail"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPatRegistEmail" />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/patientProgressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:layout_centerInParent="true"
         android:indeterminate="true"
         android:indeterminateDrawable="@drawable/progress_back"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -117,15 +114,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextCIN"
+        android:id="@+id/editTextPatientCIN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="CIN"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:padding="5dp"
         android:textColorHint="@color/white"
         android:textSize="18sp"
@@ -133,4 +130,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
