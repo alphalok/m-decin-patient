@@ -6,17 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".PatientProfileActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="121dp"
-        android:layout_marginTop="289dp"
-        android:layout_marginEnd="232dp"
-        android:layout_marginBottom="423dp"
-        android:text="HELLLLLLLLOOOOOO"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/MedecinsRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

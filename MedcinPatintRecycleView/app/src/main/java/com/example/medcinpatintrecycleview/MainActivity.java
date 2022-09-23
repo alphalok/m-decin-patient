@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -25,7 +24,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -73,11 +71,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.testViewRegister:
-                startActivity(new Intent(this,RegisterActivity.class));
+                startActivity(new Intent(MainActivity.this,RegisterUserActivity.class));
                 break;
             case R.id.loginBtn:
                 userLogin();
                 break;
+            case R.id.testViewResetPassword:
+                startActivity(new Intent(MainActivity.this,ResetPasswordActivity.class));
         }
 
 
@@ -123,8 +123,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                                 if(user.isEmailVerified()){
                                     if(userStatus.getCheckedRadioButtonId() == R.id.PatientBtn  ){
-                                        startActivity(new Intent(MainActivity.this,PatientProfileActivity.class));
-                                        finish();
+
+                                        for(DataSnapshot ds : snapshot.getChildren()){
+                                            Patient patient = ds.getValue(Patient.class);
+                                            if(patient.getEmai().equals(auth.getCurrentUser().getEmail())){
+
+                                                Intent intent =new Intent(MainActivity.this,PatientProfileActivity.class);
+                                                intent.putExtra("PATIENT_CIN",patient.getCin());
+                                                startActivity(intent);
+                                                finish();
+                                            }
+                                        }
+
                                     }
                                     else{
                                         Toast.makeText(MainActivity.this, "ce nest pas un medcin", Toast.LENGTH_SHORT).show();
@@ -139,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             }
                             else{
                                     if(userStatus.getCheckedRadioButtonId() == R.id.MedecinBtn  ){
-                                        startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+                                        startActivity(new Intent(MainActivity.this, MedecinProfileActivity.class));
                                         finish();
                                     }
                                     else{
@@ -191,12 +201,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(checkUserIfIsPatient(auth.getCurrentUser().getEmail(),snapshot) == true){
-                        startActivity(new Intent(MainActivity.this,PatientProfileActivity.class));
-                        progressBar.setVisibility(View.GONE);
-                        finish();
+
+                        for(DataSnapshot ds : snapshot.getChildren()){
+                            Patient patient = ds.getValue(Patient.class);
+                            if(patient.getEmai().equals(auth.getCurrentUser().getEmail())){
+
+                                Intent intent =new Intent(MainActivity.this,PatientProfileActivity.class);
+                                intent.putExtra("PATIENT_CIN",patient.getCin());
+                                startActivity(intent);
+                                finish();
+                                progressBar.setVisibility(View.GONE);
+                            }
+                        }
                     }
                     else{
-                        startActivity(new Intent(MainActivity.this,ProfileActivity.class));
+                        startActivity(new Intent(MainActivity.this, MedecinProfileActivity.class));
                         progressBar.setVisibility(View.GONE);
                         finish();
                     }
@@ -226,5 +245,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return false;
 
     }
+
 
 }

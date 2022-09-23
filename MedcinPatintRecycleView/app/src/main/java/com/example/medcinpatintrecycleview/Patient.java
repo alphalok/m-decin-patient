@@ -1,17 +1,28 @@
 package com.example.medcinpatintrecycleview;
 
-public class Patient {
-    private String fullname ,age ,emai, Cin ;
+import java.io.Serializable;
+
+public class Patient implements Serializable {
+    private String fullname ,age ,emai, Cin,numTelephone ;
 
 
     public Patient() {
     }
 
-    public Patient(String fullname, String age, String emai, String cin) {
+    public String getNumTelephone() {
+        return numTelephone;
+    }
+
+    public void setNumTelephone(String numTelephone) {
+        this.numTelephone = numTelephone;
+    }
+
+    public Patient(String fullname, String age, String emai, String cin, String numTelephone) {
         this.fullname = fullname;
         this.age = age;
         this.emai = emai;
         Cin = cin;
+        this.numTelephone=numTelephone;
     }
 
     public String getFullname() {

@@ -9,13 +9,10 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,7 +27,6 @@ import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.dynamiclinks.ShortDynamicLink;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class AddPatientActivity extends AppCompatActivity {
     private EditText editTextPhoneNumber, editTextCIN;
@@ -52,7 +48,7 @@ public class AddPatientActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         userUid = auth.getCurrentUser().getUid();
 
-        editTextPhoneNumber = findViewById(R.id.editTextPatientFullName);
+        editTextPhoneNumber = findViewById(R.id.editTextPatientNumTel);
         editTextCIN = findViewById(R.id.editTextPatientCIN);
 
         registerBtn = findViewById(R.id.patientRegisterBtn);
@@ -119,18 +115,17 @@ public class AddPatientActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(AddPatientActivity.this,ProfileActivity.class));
+        startActivity(new Intent(AddPatientActivity.this, MedecinProfileActivity.class));
         finish();
     }
 
     private void sharReferalLink(String patientCin, String phoneNumber) {
 
-        //todo add to the finction a new parametre (phone nubre) so that u can send the link to him
 
         ////////// creer referral Link //////////
 
         String referralLink = "https://medcinetpatient.page.link/?" +
-                "link=https://chuibnrochd.ma/medecinpatients.php?patientid=" + patientCin + "-" +
+                "link=https://chuibnrochd.ma/medecinpatients.php?patientid=" + patientCin + "-" +userUid+"-"+
                 "&apn=" + getPackageName() +
                 "&st=" + "lien referral" +
                 "&sd=" + "appuyez pour completer votre inscription" +

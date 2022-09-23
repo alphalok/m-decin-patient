@@ -4,15 +4,19 @@ import java.util.ArrayList;
 
 public class Medcin  {
 
-    private String Fullname ,Age ,Emai, Cin ;
+    private String Fullname ,NumTel ,Emai, NumOrdre ;
     private ArrayList<String> medcinPatientsCin;
 
-    public Medcin(String fullname, String age, String emai, String cin) {
+    public Medcin(String fullname, int numTel, String emai, String numOrdre) {
         Fullname = fullname;
-        Age = age;
+        numTel = numTel;
         Emai = emai;
-        Cin = cin;
+        NumOrdre = numOrdre;
         medcinPatientsCin= new ArrayList<String>();
+    }
+
+    public Medcin(){
+
     }
 
     public String getFullname() {
@@ -23,14 +27,6 @@ public class Medcin  {
         Fullname = fullname;
     }
 
-    public String getAge() {
-        return Age;
-    }
-
-    public void setAge(String age) {
-        Age = age;
-    }
-
     public String getEmai() {
         return Emai;
     }
@@ -39,12 +35,20 @@ public class Medcin  {
         Emai = emai;
     }
 
-    public String getCin() {
-        return Cin;
+    public String getNumTel() {
+        return NumTel;
     }
 
-    public void setCin(String cin) {
-        Cin = cin;
+    public void setNumTel(String numTel) {
+        NumTel = numTel;
+    }
+
+    public String getNumOrdre() {
+        return NumOrdre;
+    }
+
+    public void setNumOrdre(String numOrdre) {
+        NumOrdre = numOrdre;
     }
 
     public ArrayList<String> getPatients() {

@@ -13,7 +13,7 @@
     android:background="@color/white">
 
     <RelativeLayout
-        android:id="@+id/relativeLayoutP"
+        android:id="@+id/relativeLayoutM"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -30,7 +30,7 @@
             android:textStyle="bold|italic" />
 
         <TextView
-            android:id="@+id/textViewFullNom"
+            android:id="@+id/textViewMFullNom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
@@ -43,71 +43,44 @@
             android:textStyle="bold|italic" />
 
         <TextView
-            android:id="@+id/textViewAg"
+            android:id="@+id/textViewNO"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textViewFullNom"
+            android:layout_below="@id/textViewMFullNom"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Age : "
+            android:text="Num d'ordre : "
             android:textSize="20dp"
             android:textStyle="bold|italic" />
 
         <TextView
-            android:id="@+id/textViewAge"
+            android:id="@+id/textViewMNumOrdre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textViewFullNom"
+            android:layout_below="@id/textViewMFullNom"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:layout_toRightOf="@+id/textViewFullN"
-            android:text="age"
-            android:textSize="20dp"
-            android:textStyle="bold|italic" />
-
-        <TextView
-        android:id="@+id/textViewCI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textViewAg"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="CIN : "
-        android:textSize="20dp"
-        android:textStyle="bold|italic" />
-
-        <TextView
-            android:id="@+id/textViewMCIN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textViewAge"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="CIN"
+            android:text="Num d'ordre"
             android:textSize="20dp"
             android:textStyle="bold|italic" />
 
         <Button
-            android:id="@+id/VoirDossierBTN"
+            android:id="@+id/SendImg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewMCIN"
+            android:layout_below="@+id/textViewNO"
             android:layout_marginStart="40dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/custtom_button_back"
-            android:text="Voir dossier"
+            android:text="Envoyer une Image"
             android:textAllCaps="false"
             android:textSize="20dp"
             android:textStyle="bold|italic" />

@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
+    tools:context=".MedecinRegisterActivity"
     android:background="@color/Blue_dark"
     >
 
     <EditText
-        android:id="@+id/editTextPatientFullName"
+        android:id="@+id/editTextPatientNumTel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editTextPatientCIN"
@@ -19,16 +19,16 @@
         android:ems="10"
         android:hint="numéro de téléphone"
         android:inputType="number"
-        android:textSize="18sp"
         android:padding="5dp"
         android:textColorHint="@color/white"
+        android:textSize="18sp"
         app:hintTextColor="@color/white" />
 
     <Button
         android:id="@+id/patientRegisterBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editTextPatientFullName"
+        android:layout_below="@+id/editTextPatientNumTel"
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
@@ -56,11 +56,11 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="250dp"
         android:layout_marginEnd="20dp"
-        android:textSize="18sp"
         android:ems="10"
         android:hint="CIN"
         android:inputType="text"
         android:padding="5dp"
         android:textColorHint="@color/white"
+        android:textSize="18sp"
         app:hintTextColor="@color/white" />
 </RelativeLayout>

@@ -9,7 +9,7 @@
 
 
     <EditText
-        android:id="@+id/editTextPatientFullName"
+        android:id="@+id/editTextPatientNumTel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -18,13 +18,13 @@
         android:ems="10"
         android:hint="Full Name"
         android:inputType="textPersonName"
-        android:textSize="18sp"
         android:padding="5dp"
         android:textColorHint="@color/white"
+        android:textSize="18sp"
         app:hintTextColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/editTextPatientCIN"
-        app:layout_constraintStart_toStartOf="@+id/editTextPatientCIN"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPatientCIN" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextNTel"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextNTel"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextNTel" />
 
     <EditText
         android:id="@+id/editTextPatientAge"
@@ -40,9 +40,9 @@
         android:textColorHint="@color/white"
         android:textSize="18sp"
         app:hintTextColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/editTextPatientFullName"
-        app:layout_constraintStart_toStartOf="@+id/editTextPatientFullName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPatientFullName"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPatientNumTel"
+        app:layout_constraintStart_toStartOf="@+id/editTextPatientNumTel"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPatientNumTel"
         />
 
     <EditText
@@ -67,19 +67,19 @@
         android:id="@+id/patientRegistBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/custtom_button_back"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:text="Register"
-        android:textStyle="bold"
-        android:textColor="@color/white"
         android:backgroundTint="@color/purple_500"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPatRegistPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPatRegistPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPatRegistPassword" />
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPatConfRegistPassword"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPatConfRegistPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPatConfRegistPassword" />
 
     <EditText
         android:id="@+id/editTextTextPatRegistPassword"
@@ -100,6 +100,24 @@
         app:layout_constraintStart_toStartOf="@+id/editTextPatRegistEmail"
         app:layout_constraintTop_toBottomOf="@+id/editTextPatRegistEmail" />
 
+    <EditText
+        android:id="@+id/editTextTextPatConfRegistPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="Confirmer mot de pass"
+        android:inputType="textPassword"
+        android:padding="5dp"
+        android:textColorHint="@color/white"
+        android:textSize="18sp"
+        app:hintTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPatRegistPassword"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPatRegistPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPatRegistPassword" />
+
     <ProgressBar
         android:id="@+id/patientProgressBar"
         style="?android:attr/progressBarStyle"
@@ -118,7 +136,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="CIN"
@@ -130,5 +148,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextNTel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="Numero de telephone"
+        android:inputType="number"
+        android:padding="5dp"
+        android:textColorHint="@color/white"
+        android:textSize="18sp"
+        app:hintTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPatientCIN"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPatientCIN" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

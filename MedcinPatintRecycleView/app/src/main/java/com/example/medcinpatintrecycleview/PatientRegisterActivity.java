@@ -3,7 +3,6 @@ package com.example.medcinpatintrecycleview;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,11 +25,12 @@ import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
 
 public class PatientRegisterActivity extends AppCompatActivity {
 
-    private EditText editTextemail, editTextage, editTextFullName, editTextCIN, editTextPassword;
+    private EditText editTextemail, editTextage, editTextFullName, editTextCIN, editTextPassword,editTextNumTelephone,editTextConfirmPassword;
     private Button registerBtn;
     private ProgressBar patientProgressBar;
 
     private FirebaseAuth auth;
+    private String medcinId;
 
 
     @Override
@@ -42,11 +42,13 @@ public class PatientRegisterActivity extends AppCompatActivity {
         editTextage=findViewById(R.id.editTextPatientAge);
         editTextemail=findViewById(R.id.editTextPatRegistEmail);
         editTextPassword=findViewById(R.id.editTextTextPatRegistPassword);
-        editTextFullName=findViewById(R.id.editTextPatientFullName);
+        editTextFullName=findViewById(R.id.editTextPatientNumTel);
         editTextCIN=findViewById(R.id.editTextPatientCIN);
+        editTextNumTelephone=findViewById(R.id.editTextTextNTel);
 
         registerBtn=findViewById(R.id.patientRegistBtn);
         patientProgressBar=findViewById(R.id.patientProgressBar);
+        editTextConfirmPassword=findViewById(R.id.editTextTextPatConfRegistPassword);
 
         auth=FirebaseAuth.getInstance();
 
@@ -70,6 +72,8 @@ public class PatientRegisterActivity extends AppCompatActivity {
 
                                 String PatientCin = referLink.substring(0, referLink.indexOf("-"));
 
+                                medcinId = referLink.substring(PatientCin.length()+1,referLink.lastIndexOf("-"));
+
                                 editTextCIN.setText(PatientCin);
                                 editTextCIN.setEnabled(false);
 
@@ -80,13 +84,6 @@ public class PatientRegisterActivity extends AppCompatActivity {
 
                         }
 
-
-                        // Handle the deep link. For example, open the linked
-                        // content, or apply promotional credit to the user's
-                        // account.
-                        // ...
-
-                        // ...
                     }
                 })
                 .addOnFailureListener(this, new OnFailureListener() {
@@ -95,8 +92,6 @@ public class PatientRegisterActivity extends AppCompatActivity {
                         Log.e("Patient Registration", "getDynamicLink:onFailure", e);
                     }
                 });
-
-
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,6 +108,23 @@ public class PatientRegisterActivity extends AppCompatActivity {
         String fullName = editTextFullName.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String cin = editTextCIN.getText().toString().trim();
+        String numTel =editTextNumTelephone.getText().toString().trim();
+
+        String confirmPwd=editTextConfirmPassword.toString().trim();
+
+
+
+        if (cin.isEmpty()) {
+            editTextCIN.setError("entrer votre CIN");
+            editTextCIN.requestFocus();
+            return;
+        }
+
+        if(numTel.length()!=10){
+            editTextNumTelephone.setError("Entrer un Numero Valide");
+            editTextNumTelephone.requestFocus();
+            return;
+        }
 
 
         if (fullName.isEmpty()) {
@@ -141,6 +153,16 @@ public class PatientRegisterActivity extends AppCompatActivity {
             editTextPassword.requestFocus();
             return;
         }
+        if (confirmPwd.isEmpty()) {
+            editTextConfirmPassword.setError("confirmer votre mot de pass");
+            editTextConfirmPassword.requestFocus();
+            return;
+        }
+        if(confirmPwd.contains(password)){
+            editTextConfirmPassword.setError("entrer un mot de pass valide");
+            editTextConfirmPassword.requestFocus();
+            return;
+        }
 
         patientProgressBar.setVisibility(View.VISIBLE);
 
@@ -151,7 +173,7 @@ public class PatientRegisterActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
 
-                    Patient patient = new Patient(fullName,age,email,cin);
+                    Patient patient = new Patient(fullName,age,email,cin,numTel);
 
                     FirebaseDatabase.getInstance().getReference("Users").child("patients").child(patient.getCin())
                             .setValue(patient).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -160,14 +182,15 @@ public class PatientRegisterActivity extends AppCompatActivity {
                                     if(task.isSuccessful()){
                                         Toast.makeText(PatientRegisterActivity.this, " enregistrer", Toast.LENGTH_LONG).show();
                                         patientProgressBar.setVisibility(View.GONE);
-                                        //startActivity( new Intent(PatientRegisterActivity.this,ProfileActivity.class));
+                                        FirebaseDatabase.getInstance().getReference("Users").child("patients").child(patient.getCin()).child("patientMedcins").push().setValue(medcinId);
+
+                                        //startActivity( new Intent(PatientRegisterActivity.this,MedecinProfileActivity.class));
                                         finish();
 
                                     }
                                     else{
                                         Toast.makeText(PatientRegisterActivity.this, "non enregister", Toast.LENGTH_LONG).show();
                                         patientProgressBar.setVisibility(View.GONE);
-                                        auth.signOut();
                                     }
                                 }
                             });

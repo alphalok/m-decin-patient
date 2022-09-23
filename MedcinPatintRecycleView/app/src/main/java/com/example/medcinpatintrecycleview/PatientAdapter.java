@@ -1,9 +1,11 @@
 package com.example.medcinpatintrecycleview;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,9 +48,19 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
         Patient patient = patients.get(position);
 
         holder.fullName.setText(patient.getFullname());
-        holder.email.setText(patient.getEmai());
         holder.age.setText(patient.getAge());
         holder.cin.setText(patient.getCin());
+
+
+        holder.voirDossier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(context,DossierPatientActivity.class);
+                intent.putExtra("PATIENT_CHOISI",patient);
+                context.startActivity(intent);
+
+            }
+        });
 
     }
 
@@ -67,7 +79,8 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-       private TextView age, fullName,cin,email;
+       private TextView age, fullName,cin;
+       private Button voirDossier;
 
 
 
@@ -76,8 +89,9 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
 
             age=itemView.findViewById(R.id.textViewAge);
             fullName=itemView.findViewById(R.id.textViewFullNom);
-            cin=itemView.findViewById(R.id.textViewCIN);
-            email=itemView.findViewById(R.id.textViewEmail);
+            cin=itemView.findViewById(R.id.textViewMCIN);
+
+            voirDossier =itemView.findViewById(R.id.VoirDossierBTN);
 
         }
 

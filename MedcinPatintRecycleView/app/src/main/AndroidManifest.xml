@@ -18,9 +18,14 @@
         android:theme="@style/Theme.MedcinPatintRecycleView"
         tools:targetApi="31">
         <activity
+            android:name=".ResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DossierPatientActivity"
+            android:exported="false" />
+        <activity
             android:name=".PatientRegisterActivity"
-            android:exported="true" >
-
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -31,21 +36,18 @@
                     android:host="medcinetpatient.page.link"
                     android:scheme="https" />
             </intent-filter>
-
-
         </activity>
         <activity
             android:name=".PatientProfileActivity"
             android:exported="false" />
         <activity
             android:name=".AddPatientActivity"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name=".ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".MedecinProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MedecinRegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -56,6 +58,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RegisterUserActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
+    tools:context=".MedecinRegisterActivity"
     android:background="@color/Blue_dark">
 
 
@@ -22,24 +22,24 @@
         app:hintTextColor="@color/white"
         android:hint="Full Name"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/editTextCIN"
-        app:layout_constraintStart_toStartOf="@+id/editTextCIN"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCIN" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumOrdre"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumOrdre"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumOrdre" />
 
     <EditText
-        android:id="@+id/editTextAge"
+        android:id="@+id/editTextNumTel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:textSize="18sp"
+        android:hint="Numéro de téléphone"
+        android:inputType="number"
         android:padding="5dp"
         android:textColorHint="@color/white"
+        android:textSize="18sp"
         app:hintTextColor="@color/white"
-        android:hint="Age"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextFullName" />
@@ -58,9 +58,9 @@
         app:hintTextColor="@color/white"
         android:hint="Email"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/editTextAge"
-        app:layout_constraintStart_toStartOf="@+id/editTextAge"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAge" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumTel"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumTel"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumTel" />
 
 
 
@@ -117,14 +117,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextCIN"
+        android:id="@+id/editTextNumOrdre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:hint="CIN"
+        android:hint="Numero d'ordre"
         android:inputType="textPersonName"
         android:padding="5dp"
         android:textColorHint="@color/white"
