@@ -18,6 +18,9 @@
         android:theme="@style/Theme.MedcinPatintRecycleView"
         tools:targetApi="31">
         <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".ResetPasswordActivity"
             android:exported="false" />
         <activity

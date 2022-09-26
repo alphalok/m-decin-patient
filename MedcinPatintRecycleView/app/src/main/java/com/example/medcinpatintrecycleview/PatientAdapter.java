@@ -1,5 +1,6 @@
 package com.example.medcinpatintrecycleview;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -58,9 +59,23 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
                 Intent intent= new Intent(context,DossierPatientActivity.class);
                 intent.putExtra("PATIENT_CHOISI",patient);
                 context.startActivity(intent);
+                ((Activity)context).finish();
 
             }
         });
+
+        holder.sendMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context,ChatActivity.class);
+                intent.putExtra("RECEIVER_ID",patient.getCin());
+                intent.putExtra("RECEIVER_NAME",patient.getFullname());
+                intent.putExtra("USER_TYPE",1);
+                context.startActivity(intent);
+            }
+        });
+
+
 
     }
 
@@ -81,6 +96,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
     public static class MyViewHolder extends RecyclerView.ViewHolder {
        private TextView age, fullName,cin;
        private Button voirDossier;
+       private Button sendMessage;
 
 
 
@@ -92,6 +108,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
             cin=itemView.findViewById(R.id.textViewMCIN);
 
             voirDossier =itemView.findViewById(R.id.VoirDossierBTN);
+            sendMessage = itemView.findViewById(R.id.SendMessageBtn);
 
         }
 

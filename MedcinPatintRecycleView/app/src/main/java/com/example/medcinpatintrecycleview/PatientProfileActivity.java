@@ -69,7 +69,7 @@ public class PatientProfileActivity extends AppCompatActivity {
         //medecins.add(new Medcin("ka",065,"elho@gmail.com","kamal123"));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MedcinAdapter(this);
+        adapter = new MedcinAdapter(this,key);
         adapter.setMedecins(medecins);
         recyclerView.setAdapter(adapter);
 

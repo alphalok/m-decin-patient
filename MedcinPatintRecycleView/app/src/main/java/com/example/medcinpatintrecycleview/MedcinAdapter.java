@@ -11,12 +11,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class MedcinAdapter extends RecyclerView.Adapter<MedcinAdapter.MyViewHolder> {
 
     private Context context;
     private ArrayList<Medcin> medecins = new ArrayList<>();
+    private DatabaseReference reference;
+    private String key;
 
     public void setMedecins(ArrayList<Medcin> medecins) {
         this.medecins = medecins;
@@ -35,17 +43,45 @@ public class MedcinAdapter extends RecyclerView.Adapter<MedcinAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MedcinAdapter.MyViewHolder holder, int position) {
 
-        Medcin medecin = medecins.get(position);
+        Medcin medecin1 = medecins.get(position);
 
-        holder.fullName.setText(medecin.getFullname());
-        holder.numOrdre.setText(medecin.getNumOrdre());
+        holder.fullName.setText(medecin1.getFullname());
+        holder.numOrdre.setText(medecin1.getNumOrdre());
 
 
         holder.senImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(context,DossierPatientActivity.class);
-                context.startActivity(intent);
+                Intent intent= new Intent(context,ChatActivity.class);
+
+                reference = FirebaseDatabase.getInstance().getReference().child("Users").child("medecins");
+                reference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            for(DataSnapshot ds : snapshot.getChildren()){
+                                Medcin medcin2 = ds.getValue(Medcin.class);
+                                if(medcin2.getNumOrdre().equals(medecin1.getNumOrdre())){
+
+
+
+                                    intent.putExtra("RECEIVER_ID",ds.getKey());
+                                    intent.putExtra("RECEIVER_NAME",medcin2.getFullname());
+                                    intent.putExtra("USER_TYPE", 0);
+                                    intent.putExtra("PATIENT_CIN",key);
+                                    context.startActivity(intent);
+
+
+                                }
+                            }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+
+
+
 
             }
         });
@@ -57,8 +93,9 @@ public class MedcinAdapter extends RecyclerView.Adapter<MedcinAdapter.MyViewHold
         return medecins.size();
     }
 
-    public MedcinAdapter(Context context) {
+    public MedcinAdapter(Context context,String key) {
         this.context = context;
+        this.key=key;
     }
 
 

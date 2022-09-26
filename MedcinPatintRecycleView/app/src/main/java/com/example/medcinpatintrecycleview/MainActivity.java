@@ -1,8 +1,10 @@
 package com.example.medcinpatintrecycleview;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -246,5 +248,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("voulez vous quitter l'application");
+        builder.setMessage("etes vous sur de vouloir quitter l'application");
 
+        builder.setPositiveButton("Quitter", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                MainActivity.super.onBackPressed();
+                finish();
+            }
+        });
+        builder.setNegativeButton("Rester", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.show();
+    }
 }

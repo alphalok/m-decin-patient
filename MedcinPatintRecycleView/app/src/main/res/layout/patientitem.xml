@@ -97,19 +97,34 @@
             android:textSize="20dp"
             android:textStyle="bold|italic" />
 
+
         <Button
             android:id="@+id/VoirDossierBTN"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewMCIN"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/custtom_button_back"
             android:text="Voir dossier"
             android:textAllCaps="false"
-            android:textSize="20dp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/SendMessageBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewMCIN"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toRightOf="@id/VoirDossierBTN"
+            android:background="@drawable/custtom_button_back"
+            android:text="envoyer un message"
+            android:textAllCaps="false"
             android:textStyle="bold|italic" />
 
 

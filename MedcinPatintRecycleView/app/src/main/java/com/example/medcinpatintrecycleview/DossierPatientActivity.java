@@ -27,6 +27,14 @@ public class DossierPatientActivity extends AppCompatActivity implements View.On
 
     private DatabaseReference reference;
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(DossierPatientActivity.this,MedecinProfileActivity.class));
+        finish();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
