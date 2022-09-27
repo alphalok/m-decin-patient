@@ -14,4 +14,9 @@
         <!-- Customize your theme here. -->
         <item name="android:windowNoTitle">false</item>
     </style>
+    
+    <style name="Theme.MedcinPatintRecycleView.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>

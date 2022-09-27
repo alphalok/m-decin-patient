@@ -77,32 +77,54 @@ public class AddPatientActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registerUser();
+                String phoneNumber = editTextPhoneNumber.getText().toString().trim();
+                String cin = editTextCIN.getText().toString().trim();
+
+                if (cin.isEmpty()) {
+                    editTextCIN.setError("entrer votre CIN");
+                    editTextCIN.requestFocus();
+                }
+
+                if (phoneNumber.isEmpty()) {
+                    editTextPhoneNumber.setError("entrer votre nom");
+                    editTextPhoneNumber.requestFocus();
+                    return;
+                }
+
+                progressBar.setVisibility(View.VISIBLE);
+
+                reference = FirebaseDatabase.getInstance().getReference("Users");
+
+                reference.child("patients").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if(snapshot.child(cin).exists()){
+                                    reference.child("medecins").child(userUid).child("medcinPatients").push().setValue(cin);
+                                    reference.child("patients").child(cin).child("patientMedcins").push().setValue(userUid);
+                                    Toast.makeText(AddPatientActivity.this, "Patient enregistrer", Toast.LENGTH_SHORT).show();
+                                    progressBar.setVisibility(View.GONE);
+                                    startActivity(new Intent(AddPatientActivity.this,MedecinProfileActivity.class));
+                                    finish();
+                                }
+                                else {
+                                    registerNewUser(cin,phoneNumber);
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
 
             }
         });
     }
 
-    private void registerUser() {
-
-        String phoneNumber = editTextPhoneNumber.getText().toString().trim();
-        String cin = editTextCIN.getText().toString().trim();
-
-        if (cin.isEmpty()) {
-            editTextCIN.setError("entrer votre CIN");
-            editTextCIN.requestFocus();
-        }
-
-        if (phoneNumber.isEmpty()) {
-            editTextPhoneNumber.setError("entrer votre nom");
-            editTextPhoneNumber.requestFocus();
-            return;
-        }
+    private void registerNewUser(String cin,String phoneNumber) {
 
         sharReferalLink(cin, phoneNumber);
-
-        progressBar.setVisibility(View.VISIBLE);
-
 
         reference = FirebaseDatabase.getInstance().getReference("Users");
         reference.child("medecins").child(userUid).child("medcinPatients").push().setValue(cin);
@@ -172,7 +194,7 @@ public class AddPatientActivity extends AppCompatActivity {
                     patients.add(patient);;
                 }
                 if(patients.size()==1){
-                    editTextPhoneNumber.setText(patients.get(0).getAge());
+                    editTextPhoneNumber.setText(patients.get(0).getNumTelephone());
                 }
                 else{
                     editTextPhoneNumber.setText("");

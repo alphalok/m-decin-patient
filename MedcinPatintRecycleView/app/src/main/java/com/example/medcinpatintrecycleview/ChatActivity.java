@@ -1,10 +1,12 @@
 package com.example.medcinpatintrecycleview;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -45,6 +47,7 @@ public class ChatActivity extends AppCompatActivity {
     private int RECEIVER_IS_PAT = 1;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,13 +80,35 @@ public class ChatActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
         chatUserName.setText(reciver_name);
+        chatUserName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(messageEt.getText().toString().isEmpty()){
+                    finish();
+                }
+                else{
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ChatActivity.this);
+                    builder.setTitle("voulez vous quitter la conversation");
+                    builder.setMessage("Votre conversation peut etre supprimé");
+
+                    builder.setPositiveButton("Quitter", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    });
+                    builder.setNegativeButton("Rester", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    });
+                    builder.show();
+                }
+
+            }
+        });
 
 
 
@@ -104,6 +129,36 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(messageEt.getText().toString().isEmpty()){
+            ChatActivity.super.onBackPressed();
+            finish();
+        }
+        else {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("voulez vous quitter la conversation");
+            builder.setMessage("Votre conversation peut etre supprimé");
+
+            builder.setPositiveButton("Quitter", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    ChatActivity.super.onBackPressed();
+                    finish();
+                }
+            });
+            builder.setNegativeButton("Rester", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            builder.show();
+
+        }
 
     }
 
@@ -188,4 +243,4 @@ public class ChatActivity extends AppCompatActivity {
 
 
 
-//todo remove the banner from some activities // check the patients if he already exist before sending him a registration link
+//todo Add sne img functionality to the app

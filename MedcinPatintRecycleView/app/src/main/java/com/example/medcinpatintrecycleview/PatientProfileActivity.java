@@ -1,10 +1,12 @@
 package com.example.medcinpatintrecycleview;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,8 +45,24 @@ public class PatientProfileActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("voulez vous quitter l'application");
+        builder.setMessage("etes vous sur de vouloir quitter l'application");
+
+        builder.setPositiveButton("Quitter", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                PatientProfileActivity.super.onBackPressed();
+                finish();
+            }
+        });
+        builder.setNegativeButton("Rester", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.show();
     }
 
     @Override
@@ -81,6 +99,8 @@ public class PatientProfileActivity extends AppCompatActivity {
             ArrayList<String> medcinId = new ArrayList<String>();
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                medcinId.clear();
+                medecins.clear();
                 for (DataSnapshot dataSnapshot : snapshot.child("patients").child(key).child("patientMedcins").getChildren()){
                     medcinId.add(String.valueOf(dataSnapshot.getValue()));
                 }
@@ -116,6 +136,8 @@ public class PatientProfileActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 
 
