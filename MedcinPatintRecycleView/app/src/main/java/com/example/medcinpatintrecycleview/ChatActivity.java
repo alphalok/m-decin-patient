@@ -1,6 +1,7 @@
 package com.example.medcinpatintrecycleview;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,8 +45,13 @@ public class ChatActivity extends AppCompatActivity {
 
     private int receiverType;
 
+    private Uri uri;
+
     private int RECEIVER_IS_MED = 0;
     private int RECEIVER_IS_PAT = 1;
+
+    private static final int PICK_IMG = 1;
+
 
 
 
@@ -129,7 +136,42 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
+        camBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(intent,PICK_IMG);
+            }
+        });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == PICK_IMG && resultCode == RESULT_OK && data != null && data.getData() != null){
+
+            if (receiverType == RECEIVER_IS_PAT){
+                sender_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            }else if(receiverType == RECEIVER_IS_MED){
+                sender_id = getIntent().getStringExtra("PATIENT_CIN");
+            }
+            uri = data.getData();
+
+            String url = uri.toString();
+            Intent intent = new Intent(ChatActivity.this,SendImgActivity.class);
+            intent.putExtra("URL",url);
+            intent.putExtra("RECEIVER_ID",reciver_Id);
+            intent.putExtra("SENDER_ID",sender_id);
+            startActivity(intent);
+
+        }
+        else {
+            Toast.makeText(this, "aucun image a ete selectionné", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -243,4 +285,4 @@ public class ChatActivity extends AppCompatActivity {
 
 
 
-//todo Add sne img functionality to the app
+//todo Add img functionality to the app

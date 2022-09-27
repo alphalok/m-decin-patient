@@ -18,17 +18,20 @@
         android:theme="@style/Theme.MedcinPatintRecycleView"
         tools:targetApi="31">
         <activity
+            android:name=".SendImgActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChatActivity"
             android:exported="false"
-            android:theme="@style/Theme.MedcinPatintRecycleView.NoActionBar"/>
+            android:theme="@style/Theme.MedcinPatintRecycleView.NoActionBar" />
         <activity
             android:name=".ResetPasswordActivity"
             android:exported="false"
-            android:theme="@style/Theme.MedcinPatintRecycleView.NoActionBar"/>
+            android:theme="@style/Theme.MedcinPatintRecycleView.NoActionBar" />
         <activity
             android:name=".DossierPatientActivity"
             android:exported="false"
-            android:theme="@style/Theme.MedcinPatintRecycleView.NoActionBar"/>
+            android:theme="@style/Theme.MedcinPatintRecycleView.NoActionBar" />
         <activity
             android:name=".PatientRegisterActivity"
             android:exported="true"
@@ -47,18 +50,18 @@
         <activity
             android:name=".PatientProfileActivity"
             android:exported="false"
-            android:theme="@style/Theme.MedcinPatintRecycleView.NoActionBar"/>
+            android:theme="@style/Theme.MedcinPatintRecycleView.NoActionBar" />
         <activity
             android:name=".AddPatientActivity"
             android:exported="false"
-            android:theme="@style/Theme.MedcinPatintRecycleView.NoActionBar"/>
+            android:theme="@style/Theme.MedcinPatintRecycleView.NoActionBar" />
         <activity
             android:name=".MedecinProfileActivity"
             android:exported="false" />
         <activity
             android:name=".MedecinRegisterActivity"
             android:exported="false"
-            android:theme="@style/Theme.MedcinPatintRecycleView.NoActionBar"/>
+            android:theme="@style/Theme.MedcinPatintRecycleView.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -72,7 +75,7 @@
         <activity
             android:name=".RegisterUserActivity"
             android:exported="false"
-            android:theme="@style/Theme.MedcinPatintRecycleView.NoActionBar"/>
+            android:theme="@style/Theme.MedcinPatintRecycleView.NoActionBar" />
     </application>
 
 </manifest>

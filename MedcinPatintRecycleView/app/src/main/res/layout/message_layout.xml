@@ -31,5 +31,28 @@
         android:background="@drawable/sender_back"
         android:textSize="15sp"
         android:padding="9dp"/>
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/sender_Img"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="10sp"
+        android:padding="9dp"
+        android:layout_gravity="right"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/receiver_Img"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="10sp"
+        android:padding="9dp"
+        android:layout_gravity="left"
+        android:visibility="gone"/>
 
 </LinearLayout>

@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="68dp"
         android:id="@+id/messagesRecycleView"/>
 
     <ImageButton
