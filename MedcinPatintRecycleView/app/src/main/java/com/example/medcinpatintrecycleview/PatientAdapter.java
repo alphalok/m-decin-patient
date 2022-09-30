@@ -74,24 +74,12 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
                 context.startActivity(intent);
             }
         });
-
-
-
     }
-
-
-
-
 
     @Override
     public int getItemCount() {
         return patients.size();
     }
-
-
-
-
-
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
        private TextView age, fullName,cin;

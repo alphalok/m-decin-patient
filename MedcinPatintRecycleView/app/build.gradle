@@ -47,5 +47,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-database:8.0.1'
     implementation 'com.squareup.picasso:picasso:2.8'
 
-    implementation 'com.orhanobut:dialogplus:1.11@aar'
+    implementation 'com.airbnb.android:lottie:3.7.0'
+
+
 }

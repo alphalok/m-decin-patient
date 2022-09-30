@@ -5,8 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MedecinRegisterActivity"
-    android:background="@color/Blue_dark"
+    android:background="@drawable/gradient_background"
     >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="150dp"
+        android:text="Ajouter un patient"
+        android:textColor="@color/teal_700"
+        android:textSize="20sp"
+        android:textStyle="italic" />
 
     <EditText
         android:id="@+id/editTextPatientNumTel"

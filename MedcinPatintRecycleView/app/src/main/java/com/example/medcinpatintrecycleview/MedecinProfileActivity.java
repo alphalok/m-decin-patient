@@ -8,11 +8,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 
@@ -35,6 +40,8 @@ public class MedecinProfileActivity extends AppCompatActivity {
     private PatientAdapter adapter ;
     private ArrayList<Patient> patients;
     private ArrayList<String> PatientCin;
+
+    private EditText searchPatient;
 
     private FirebaseUser user;
 
@@ -72,12 +79,14 @@ public class MedecinProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+
+
         addPatientBtn = findViewById(R.id.addPatientBtn);
         singoutBtn = findViewById(R.id.singOutBtn);
 
         recyclerView = findViewById(R.id.patientsRecycleView);
         parent = findViewById(R.id.relativeLayoutP);
-
+        searchPatient= findViewById(R.id.searchPatient);
         database = FirebaseDatabase.getInstance().getReference("Users");
 
         patients= new ArrayList<Patient>();
@@ -113,10 +122,6 @@ public class MedecinProfileActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
         singoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,30 +142,26 @@ public class MedecinProfileActivity extends AppCompatActivity {
 
             }
         });
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(@NonNull Menu menu) {
-        getMenuInflater().inflate(R.menu.sherach,menu);
-        MenuItem menuItem = menu.findItem(R.id.search);
-
-        SearchView searchView = (SearchView)menuItem.getActionView();
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchPatient.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onQueryTextSubmit(String s) {
-                txtSearch(s);
-                return false;
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
             }
 
             @Override
-            public boolean onQueryTextChange(String s) {
-                txtSearch(s);
-                return false;
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                txtSearch(editable.toString());
+
             }
         });
 
 
-        return super.onCreateOptionsMenu(menu);
     }
 
     private void txtSearch(String fullName){
@@ -209,29 +210,6 @@ public class MedecinProfileActivity extends AppCompatActivity {
             }
         });
         return patientCin;
-    }
-
-    private ArrayList<Patient> medecinPatient(ArrayList<String>patientsCin){
-        ArrayList<Patient> patients =new ArrayList<Patient>();
-        database.child("patients").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(String cin : patientsCin){
-                    if(snapshot.child(cin).exists()){
-                        Patient patient = snapshot.child(cin).getValue(Patient.class);
-                        patients.add(patient);
-                    }
-                    else{
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        return patients;
     }
 
 

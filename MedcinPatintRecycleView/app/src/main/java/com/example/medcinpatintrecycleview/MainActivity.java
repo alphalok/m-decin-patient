@@ -3,6 +3,8 @@ package com.example.medcinpatintrecycleview;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -35,16 +37,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ProgressBar progressBar;
 
     private RadioGroup userStatus;
+    private CardView cardView;
 
     private FirebaseAuth auth;
     private DatabaseReference reference;
 
     private Boolean  isMedecin = true;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        cardView = findViewById(R.id.mainCardView);
+        cardView.animate().translationY(-1000).setDuration(500).setStartDelay(400);
 
         editTextEmail =findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -68,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+
 
     @Override
     public void onClick(View view) {
