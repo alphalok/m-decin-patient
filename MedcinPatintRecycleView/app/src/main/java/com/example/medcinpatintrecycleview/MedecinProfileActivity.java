@@ -16,11 +16,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,8 +36,11 @@ import java.util.ArrayList;
 
 public class MedecinProfileActivity extends AppCompatActivity {
 
-    private Button addPatientBtn,singoutBtn;
 
+
+    private boolean clicked = false;
+
+    private FloatingActionButton plus_btn,nouveauPatient_btn,signOut_btn;
 
     private DatabaseReference database;
     private PatientAdapter adapter ;
@@ -50,6 +56,7 @@ public class MedecinProfileActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
 
+    private View view;
 
     @Override
     public void onBackPressed() {
@@ -77,12 +84,24 @@ public class MedecinProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+        }
         setContentView(R.layout.activity_profile);
+        view = getWindow().getDecorView();
+        view.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+            @Override
+            public void onSystemUiVisibilityChange(int i) {
+                if(i ==0){
+                    view.setSystemUiVisibility(hideSystemUi());
+                }
+            }
+        });
 
 
-
-        addPatientBtn = findViewById(R.id.addPatientBtn);
-        singoutBtn = findViewById(R.id.singOutBtn);
+        plus_btn = findViewById(R.id.addButton);
+        signOut_btn = findViewById(R.id.signOut_btn);
+        nouveauPatient_btn= findViewById(R.id.nouveauPatient_btn);
 
         recyclerView = findViewById(R.id.patientsRecycleView);
         parent = findViewById(R.id.relativeLayoutP);
@@ -122,23 +141,33 @@ public class MedecinProfileActivity extends AppCompatActivity {
         });
 
 
-        singoutBtn.setOnClickListener(new View.OnClickListener() {
+
+        plus_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                onAddButtonClicked();
+
+            }
+        });
+
+        nouveauPatient_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(new Intent(MedecinProfileActivity.this,AddPatientActivity.class));
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
+        signOut_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 auth.signOut();
                 startActivity(new Intent(MedecinProfileActivity.this,MainActivity.class));
                 finish();
 
-            }
-        });
-
-
-        addPatientBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(new Intent(MedecinProfileActivity.this,AddPatientActivity.class));
-                startActivity(intent);
-                finish();
 
             }
         });
@@ -162,6 +191,57 @@ public class MedecinProfileActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void onAddButtonClicked() {
+        setVisibility(clicked);
+        setAnimation(clicked);
+        clicked = !clicked;
+
+    }
+
+    private void setVisibility(boolean clicked) {
+        if(!clicked){
+            nouveauPatient_btn.setVisibility(View.VISIBLE);
+            signOut_btn.setVisibility(View.VISIBLE);
+
+        }
+        else{
+            nouveauPatient_btn.setVisibility(View.GONE);
+            signOut_btn.setVisibility(View.GONE);
+        }
+
+    }
+    private void setAnimation(boolean clicked){
+        if(!clicked){
+            nouveauPatient_btn.startAnimation(AnimationUtils.loadAnimation(this,R.anim.from_bottom_anim));
+            signOut_btn.startAnimation(AnimationUtils.loadAnimation(this,R.anim.from_bottom_anim));
+            plus_btn.startAnimation(AnimationUtils.loadAnimation(this,R.anim.rotate_open_anim));
+
+        }else{
+            nouveauPatient_btn.startAnimation(AnimationUtils.loadAnimation(this,R.anim.to_bottom_anim));
+            signOut_btn.startAnimation(AnimationUtils.loadAnimation(this,R.anim.to_bottom_anim));
+            plus_btn.startAnimation(AnimationUtils.loadAnimation(this,R.anim.rotate_close_anim));
+        }
+
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if(hasFocus){
+            view.setSystemUiVisibility(hideSystemUi());
+        }
+
+    }
+
+    private int hideSystemUi(){
+        return View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
     }
 
     private void txtSearch(String fullName){

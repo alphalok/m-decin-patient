@@ -6,13 +6,17 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
 
 public class StartAnimatonActivity extends AppCompatActivity {
+
+    private RelativeLayout relativeLayout;
 
     TextView welcome ;
     ImageView cloud1,cloud2,cloud3;
@@ -26,6 +30,16 @@ public class StartAnimatonActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
+
+        relativeLayout = findViewById(R.id.mainAnimation);
+
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(StartAnimatonActivity.this,MainActivity.class));
+                finish();
+            }
+        });
 
         welcome = findViewById(R.id.welcome);
         cloud1 = findViewById(R.id.cloud1);
