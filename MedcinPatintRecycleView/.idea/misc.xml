@@ -17,20 +17,23 @@
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/drawable/send_back.xml" value="0.1" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/drawable/sender_back.xml" value="0.249" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/drawable/sendmessage.xml" value="0.197" />
+        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_add_admin.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_add_patient.xml" value="0.33" />
+        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_admin.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_chat.xml" value="0.25" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_dossier_patient.xml" value="0.33" />
-        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_main.xml" value="0.67" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_patient_profile.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_patient_register.xml" value="0.33" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_profile.xml" value="0.33" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_register_user.xml" value="0.33" />
-        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_reset_password.xml" value="0.16" />
+        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_reset_password.xml" value="0.33" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_send_img.xml" value="0.25" />
-        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_start_animaton.xml" value="0.25" />
+        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/activity_start_animaton.xml" value="0.33" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/medeciniteme.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/message_layout.xml" value="0.22" />
+        <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/new_medecin_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/layout/patientitem.xml" value="0.33" />
         <entry key="..\:/Users/elhou/AndroidStudioProjects/MedcinPatintRecycleView/app/src/main/res/menu/sherach.xml" value="0.36666666666666664" />
       </map>

@@ -43,38 +43,10 @@
             android:textStyle="bold|italic" />
 
         <TextView
-            android:id="@+id/textViewAg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textViewFullNom"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="Age : "
-            android:textSize="20dp"
-            android:textStyle="bold|italic" />
-
-        <TextView
-            android:id="@+id/textViewAge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textViewFullNom"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_toRightOf="@+id/textViewFullN"
-            android:text="age"
-            android:textSize="20dp"
-            android:textStyle="bold|italic" />
-
-        <TextView
         android:id="@+id/textViewCI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewAg"
+        android:layout_below="@id/textViewFullN"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
@@ -87,7 +59,7 @@
             android:id="@+id/textViewMCIN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textViewAge"
+            android:layout_below="@id/textViewFullNom"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
@@ -99,7 +71,7 @@
 
 
         <Button
-            android:id="@+id/VoirDossierBTN"
+            android:id="@+id/VoirDossierBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewMCIN"
@@ -121,7 +93,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="4dp"
             android:layout_marginBottom="5dp"
-            android:layout_toRightOf="@id/VoirDossierBTN"
+            android:layout_toRightOf="@id/VoirDossierBtn"
             android:background="@drawable/custtom_button_back"
             android:text="envoyer un message"
             android:textAllCaps="false"

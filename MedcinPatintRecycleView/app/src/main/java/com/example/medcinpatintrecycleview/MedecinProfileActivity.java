@@ -155,8 +155,8 @@ public class MedecinProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(new Intent(MedecinProfileActivity.this,AddPatientActivity.class));
+                intent.putExtra("USER_TYPE",1);
                 startActivity(intent);
-                finish();
 
             }
         });

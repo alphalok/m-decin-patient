@@ -49,11 +49,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Welcom"
+        android:text="Médecin &amp; Patient"
         android:textColor="@color/Blue_light"
         android:textSize="25dp"
         android:textStyle="italic|bold" />
-
 
 
 </RelativeLayout>

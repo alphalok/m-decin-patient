@@ -33,13 +33,7 @@ public class StartAnimatonActivity extends AppCompatActivity {
 
         relativeLayout = findViewById(R.id.mainAnimation);
 
-        relativeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(StartAnimatonActivity.this,MainActivity.class));
-                finish();
-            }
-        });
+
 
         welcome = findViewById(R.id.welcome);
         cloud1 = findViewById(R.id.cloud1);
@@ -52,7 +46,9 @@ public class StartAnimatonActivity extends AppCompatActivity {
         cloud2.animate().translationX(-800).setDuration(2000).setStartDelay(500);
         welcome.animate().translationY(1550).setDuration(1000).setStartDelay(1500);
 
-        new Handler().postDelayed(new Runnable() {
+        Handler handler = new Handler();
+
+        handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(StartAnimatonActivity.this,MainActivity.class);
@@ -60,6 +56,16 @@ public class StartAnimatonActivity extends AppCompatActivity {
                 finish();
             }
         },5000);
+
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(StartAnimatonActivity.this,MainActivity.class));
+                finish();
+                handler.removeCallbacksAndMessages(null);
+
+            }
+        });
 
 
 

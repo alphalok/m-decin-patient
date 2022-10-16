@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MedecinRegisterActivity"
+    android:background="@drawable/gradient_background"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="150dp"
+        android:text="Ajouter un patient"
+        android:textColor="@color/teal_700"
+        android:textSize="20sp"
+        android:textStyle="italic" />
+
+    <EditText
+        android:id="@+id/editTextPatientNumTel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextPatientCIN"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="numéro de téléphone"
+        android:inputType="number"
+        android:padding="5dp"
+        android:textColorHint="@color/white"
+        android:textSize="18sp"
+        app:hintTextColor="@color/white" />
+
+    <Button
+        android:id="@+id/patientRegisterBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextPatientNumTel"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/custtom_button_back"
+        android:text="Enregistrer "
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/patientProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/progress_back"
+        />
+
+    <EditText
+        android:id="@+id/editTextPatientCIN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="CIN"
+        android:inputType="text"
+        android:padding="5dp"
+        android:textColorHint="@color/white"
+        android:textSize="18sp"
+        app:hintTextColor="@color/white" />
+</RelativeLayout>

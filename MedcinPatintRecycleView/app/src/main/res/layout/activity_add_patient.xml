@@ -8,21 +8,10 @@
     android:background="@drawable/gradient_background"
     >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="150dp"
-        android:text="Ajouter un patient"
-        android:textColor="@color/teal_700"
-        android:textSize="20sp"
-        android:textStyle="italic" />
-
     <EditText
         android:id="@+id/editTextPatientNumTel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@+id/editTextPatientCIN"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
@@ -33,7 +22,8 @@
         android:padding="5dp"
         android:textColorHint="@color/white"
         android:textSize="18sp"
-        app:hintTextColor="@color/white" />
+        app:hintTextColor="@color/white"
+        android:background="@drawable/custum_edittext_background"/>
 
     <Button
         android:id="@+id/patientRegisterBtn"
@@ -44,10 +34,27 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/custtom_button_back"
-        android:text="Enregistrer "
+        android:text="Enregistrer patient "
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/medecinRegisterBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextPatientNumTel"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/custtom_button_back"
+        android:text="Enregistrer medecin "
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
+
 
     <ProgressBar
         android:id="@+id/patientProgressBar"
@@ -63,7 +70,7 @@
     <EditText
         android:id="@+id/editTextPatientCIN"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="250dp"
         android:layout_marginEnd="20dp"
@@ -73,5 +80,6 @@
         android:padding="5dp"
         android:textColorHint="@color/white"
         android:textSize="18sp"
-        app:hintTextColor="@color/white" />
+        app:hintTextColor="@color/white"
+        android:background="@drawable/custum_edittext_background"/>
 </RelativeLayout>

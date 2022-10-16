@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -71,8 +70,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cardView = findViewById(R.id.mainCardView);
         cardView.animate().translationY(-1000).setDuration(500).setStartDelay(400);
 
-        editTextEmail =findViewById(R.id.editTextEmail);
-        editTextPassword = findViewById(R.id.editTextPassword);
+        editTextEmail =findViewById(R.id.editTextAdminEmail);
+        editTextPassword = findViewById(R.id.editTextAdminPassword);
         testViewRegister=findViewById(R.id.testViewRegister);
         testViewResetPassword=findViewById(R.id.testViewResetPassword);
         loginBtn=findViewById(R.id.loginBtn);
@@ -159,18 +158,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(task.isSuccessful()) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                    reference = FirebaseDatabase.getInstance().getReference().child("Users").child("patients");
+                    reference = FirebaseDatabase.getInstance().getReference().child("Users");
 
 
                     reference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if(checkUserIfIsPatient(email,snapshot) == true){
+                            if(checkUserIfIsAdmin(email,snapshot)== true){
+                                Intent intent =new Intent(MainActivity.this,AdminActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                            else if(checkUserIfIsPatient(email,snapshot) == true){
 
                                 if(user.isEmailVerified()){
                                     if(userStatus.getCheckedRadioButtonId() == R.id.PatientBtn  ){
 
-                                        for(DataSnapshot ds : snapshot.getChildren()){
+                                        for(DataSnapshot ds : snapshot.child("patients").getChildren()){
                                             Patient patient = ds.getValue(Patient.class);
                                             if(patient.getEmai().equals(auth.getCurrentUser().getEmail())){
 
@@ -242,13 +246,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(auth.getCurrentUser() != null){
             progressBar.setVisibility(View.VISIBLE);
 
-            reference = FirebaseDatabase.getInstance().getReference().child("Users").child("patients");
+            reference = FirebaseDatabase.getInstance().getReference().child("Users");
             reference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(checkUserIfIsPatient(auth.getCurrentUser().getEmail(),snapshot) == true){
+                    if(checkUserIfIsAdmin(auth.getCurrentUser().getEmail(),snapshot)== true){
+                        Intent intent =new Intent(MainActivity.this,AdminActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else if(checkUserIfIsPatient(auth.getCurrentUser().getEmail(),snapshot) == true){
 
-                        for(DataSnapshot ds : snapshot.getChildren()){
+                        for(DataSnapshot ds : snapshot.child("patients").getChildren()){
                             Patient patient = ds.getValue(Patient.class);
                             if(patient.getEmai().equals(auth.getCurrentUser().getEmail())){
 
@@ -278,7 +287,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean checkUserIfIsPatient(String email,DataSnapshot dataSnapshot){
         Patient patient = new Patient();
 
-        for(DataSnapshot ds : dataSnapshot.getChildren()){
+        for(DataSnapshot ds : dataSnapshot.child("patients").getChildren()){
             Log.d("Tag","cheking email existe : datasnapshot "+ ds);
 
             patient.setEmai(ds.getValue(Patient.class).getEmai());
@@ -289,6 +298,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         Log.d("tag ", "does not  exisste");
         return false;
+
+    }
+
+    private boolean  checkUserIfIsAdmin(String email,DataSnapshot dataSnapshot){
+        Admin admin = new Admin();
+        for(DataSnapshot ds : dataSnapshot.child("admin").getChildren()){
+            Log.d("Tag","cheking email existe : datasnapshot "+ ds);
+
+            admin.setEmai(ds.getValue(Patient.class).getEmai());
+            if(admin.getEmai().equals(email)){
+                Log.d("tag ", "does exisste");
+                return true;
+            }
+        }
+        Log.d("tag ", "does not  exisste");
+        return false;
+
 
     }
 

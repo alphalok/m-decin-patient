@@ -3,6 +3,7 @@ package com.example.medcinpatintrecycleview;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -32,8 +33,9 @@ public class PatientRegisterActivity extends AppCompatActivity {
     private ProgressBar patientProgressBar;
 
     private FirebaseAuth auth;
-    private String medcinId;
+    private String medcinId,patient_cin;
     private View view;
+
 
 
     @Override
@@ -55,6 +57,8 @@ public class PatientRegisterActivity extends AppCompatActivity {
 
 
 
+
+
         ///////////instaciation des Ui element///////////////
         editTextage=findViewById(R.id.editTextPatientAge);
         editTextemail=findViewById(R.id.editTextPatRegistEmail);
@@ -72,43 +76,13 @@ public class PatientRegisterActivity extends AppCompatActivity {
 
         ////////////////// Receive referral Link //////////////////
 
-        FirebaseDynamicLinks.getInstance()
-                .getDynamicLink(getIntent())
-                .addOnSuccessListener(this, new OnSuccessListener<PendingDynamicLinkData>() {
-                    @Override
-                    public void onSuccess(PendingDynamicLinkData pendingDynamicLinkData) {
-                        // Get deep link from result (may be null if no link is found)
-                        Uri deepLink = null;
-                        if (pendingDynamicLinkData != null) {
-                            deepLink = pendingDynamicLinkData.getLink();
+        medcinId = getIntent().getStringExtra("MEDECIN_NUM_ORDRE");
 
+        patient_cin = getIntent().getStringExtra("MEDECIN_NUM_ORDRE");
 
-                            String referLink = deepLink.toString();
-                            try {
-                                referLink = referLink.substring(referLink.lastIndexOf("=") + 1);
+        editTextCIN.setText(patient_cin);
+        editTextCIN.setEnabled(false);
 
-                                String PatientCin = referLink.substring(0, referLink.indexOf("-"));
-
-                                medcinId = referLink.substring(PatientCin.length()+1,referLink.lastIndexOf("-"));
-
-                                editTextCIN.setText(PatientCin);
-                                editTextCIN.setEnabled(false);
-
-
-                            } catch (Exception exception) {
-                                Log.d("exception", exception.toString());
-                            }
-
-                        }
-
-                    }
-                })
-                .addOnFailureListener(this, new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.e("Patient Registration", "getDynamicLink:onFailure", e);
-                    }
-                });
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

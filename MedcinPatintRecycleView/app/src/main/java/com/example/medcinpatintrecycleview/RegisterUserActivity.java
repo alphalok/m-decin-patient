@@ -165,7 +165,7 @@ public class RegisterUserActivity extends AppCompatActivity {
 
         if (cin.isEmpty()) {
             patientUserCin.setError("entrer votre CIN");
-            patientUserCin.requestFocus();
+            //patientUserCin.requestFocus();
             return;
         }
 
@@ -260,6 +260,25 @@ public class RegisterUserActivity extends AppCompatActivity {
             UserFullName.requestFocus();
             return;
         }
+        progressBar.setVisibility(View.VISIBLE);
+        Medcin medcin = new Medcin(fullName,numTel,numOrdre);
+        FirebaseDatabase.getInstance().getReference("Users").child("newMedecin").child(medcin.getNumOrdre()).setValue(medcin).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(RegisterUserActivity.this, " Votre demande d'enregistrement sera vérifiée", Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.GONE);
+                    finish();
+                }
+                else{
+                    Toast.makeText(RegisterUserActivity.this, " Échec de l'inscription !! ", Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.GONE);
+                }
+            }
+        });
+
+
+
         /*
         progressBar.setVisibility(View.VISIBLE);
 
@@ -277,7 +296,7 @@ public class RegisterUserActivity extends AppCompatActivity {
 
 
          */
-        startActivity(new Intent(RegisterUserActivity.this,MedecinRegisterActivity.class));
+       // startActivity(new Intent(RegisterUserActivity.this,MedecinRegisterActivity.class));
     }
 
 }

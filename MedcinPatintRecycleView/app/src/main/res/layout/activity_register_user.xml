@@ -10,21 +10,22 @@
     <EditText
         android:id="@+id/editTextUserNumTel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="100dp"
+        android:background="@drawable/custum_edittext_background"
         android:ems="10"
         android:hint="numéro de téléphone"
         android:inputType="number"
-        android:padding="5dp"
+        android:padding="10dp"
         android:textColorHint="@color/white"
         android:textSize="18sp"
         app:hintTextColor="@color/white" />
     <EditText
         android:id="@+id/editTextUserNumOrdre"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@+id/editTextUserNumTel"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
@@ -32,11 +33,12 @@
         android:ems="10"
         android:hint="numéro d'ordre"
         android:inputType="text"
-        android:padding="5dp"
+        android:padding="10dp"
         android:textColorHint="@color/white"
         android:textSize="18sp"
         app:hintTextColor="@color/white"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:background="@drawable/custum_edittext_background"/>
 
 
     <ProgressBar
@@ -53,15 +55,16 @@
     <EditText
         android:id="@+id/editTextPatientUserCIN"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@+id/editTextUserNumTel"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
+        android:background="@drawable/custum_edittext_background"
         android:ems="10"
         android:hint="CIN"
         android:inputType="text"
-        android:padding="5dp"
+        android:padding="10dp"
         android:textColorHint="@color/white"
         android:textSize="18sp"
         android:visibility="visible"
@@ -70,7 +73,7 @@
     <EditText
         android:id="@+id/editTextUserFullName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@+id/editTextUserNumTel"
         android:layout_marginStart="20dp"
         android:layout_marginTop="108dp"
@@ -78,16 +81,17 @@
         android:ems="10"
         android:hint="Nom Complet"
         android:inputType="text"
-        android:padding="5dp"
+        android:padding="10dp"
         android:textColorHint="@color/white"
         android:textSize="18sp"
         android:visibility="visible"
-        app:hintTextColor="@color/white" />
+        app:hintTextColor="@color/white"
+        android:background="@drawable/custum_edittext_background"/>
 
     <EditText
         android:id="@+id/editTextPatientUserAge"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@+id/editTextUserFullName"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
@@ -95,16 +99,17 @@
         android:ems="10"
         android:hint="Age"
         android:inputType="number"
-        android:padding="5dp"
+        android:padding="10dp"
         android:textColorHint="@color/white"
         android:textSize="18sp"
         android:visibility="visible"
-        app:hintTextColor="@color/white" />
+        app:hintTextColor="@color/white"
+        android:background="@drawable/custum_edittext_background"/>
 
     <EditText
         android:id="@+id/editTextPatientUserEmail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@+id/editTextPatientUserAge"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
@@ -112,16 +117,17 @@
         android:ems="10"
         android:hint="email"
         android:inputType="text"
-        android:padding="5dp"
+        android:padding="10dp"
         android:textColorHint="@color/white"
         android:textSize="18sp"
         android:visibility="visible"
-        app:hintTextColor="@color/white" />
+        app:hintTextColor="@color/white"
+        android:background="@drawable/custum_edittext_background"/>
 
     <EditText
         android:id="@+id/editTextPatientUserPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@+id/editTextPatientUserEmail"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
@@ -129,16 +135,17 @@
         android:ems="10"
         android:hint="mot de pass"
         android:inputType="textPassword"
-        android:padding="5dp"
+        android:padding="10dp"
         android:textColorHint="@color/white"
         android:textSize="18sp"
         android:visibility="visible"
-        app:hintTextColor="@color/white" />
+        app:hintTextColor="@color/white"
+        android:background="@drawable/custum_edittext_background"/>
 
     <EditText
         android:id="@+id/editTextPatientUserConfirmPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_below="@+id/editTextPatientUserPassword"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
@@ -146,11 +153,12 @@
         android:ems="10"
         android:hint=" confirmer votre mot de pass"
         android:inputType="textPassword"
-        android:padding="5dp"
+        android:padding="10dp"
         android:textColorHint="@color/white"
         android:textSize="18sp"
         android:visibility="visible"
-        app:hintTextColor="@color/white" />
+        app:hintTextColor="@color/white"
+        android:background="@drawable/custum_edittext_background"/>
 
     <Button
         android:id="@+id/patientUserRegisterBtn"
@@ -165,7 +173,8 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:visibility="visible" />
+        android:visibility="visible"
+        />
 
     <Button
         android:id="@+id/medecinUserRegisterBtn"
@@ -186,10 +195,10 @@
     <CheckBox
         android:id="@+id/isMedecin"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_alignBottom="@+id/editTextUserNumTel"
         android:layout_alignParentEnd="true"
-        android:text="Medecin ?" />
+        android:text="Médecin ?" />
 
 
 </RelativeLayout>

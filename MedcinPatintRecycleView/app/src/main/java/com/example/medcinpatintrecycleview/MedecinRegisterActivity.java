@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
@@ -14,11 +16,17 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
+import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
 
 public class MedecinRegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth mAuth;
@@ -27,6 +35,10 @@ public class MedecinRegisterActivity extends AppCompatActivity implements View.O
     private Button registerBtn;
     private ProgressBar progressBar;
     private View view;
+
+    private String medecin_num_ordre;
+
+    private DatabaseReference reference;
 
 
     @Override
@@ -62,6 +74,20 @@ public class MedecinRegisterActivity extends AppCompatActivity implements View.O
         registerBtn.setOnClickListener(this);
 
 
+
+        Bundle bundle = getIntent().getExtras();
+
+        if(bundle != null){
+            medecin_num_ordre = bundle.getString("MEDECIN_NUM_ORDRE");
+
+        }
+        else {
+            Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();
+        }
+
+        editTextNumOrdre.setText(medecin_num_ordre);
+        editTextNumOrdre.setEnabled(false);
+
     }
 
     @Override
@@ -94,14 +120,16 @@ public class MedecinRegisterActivity extends AppCompatActivity implements View.O
 
     private void registerUser() {
         String email = editTextemail.getText().toString().trim();
-        Integer numTel =Integer.parseInt(editTextNumTel.getText().toString());
+       // Integer numTel =Integer.parseInt(editTextNumTel.getText().toString());
         String fullName = editTextfullName.getText().toString().trim();
         String password = editTextpassword.getText().toString().trim();
         String numOrdre = editTextNumOrdre.getText().toString().trim();
 
-        if(numOrdre.isEmpty()){
-            editTextNumOrdre.setError("entrer votre CIN");
-            editTextNumOrdre.requestFocus();
+
+        if(editTextNumOrdre.getText().toString().trim().isEmpty()){
+            editTextNumTel.setError("donner votre Numero d'ordre ");
+            editTextNumTel.requestFocus();
+            return;
         }
 
         if(fullName.isEmpty()){
@@ -109,11 +137,12 @@ public class MedecinRegisterActivity extends AppCompatActivity implements View.O
             editTextfullName.requestFocus();
             return;
         }
-        if(editTextNumOrdre.getText().toString().trim().isEmpty()){
+        if(editTextNumTel.getText().toString().trim().isEmpty()){
             editTextNumTel.setError("donner votre Numero d'ordre ");
             editTextNumTel.requestFocus();
             return;
         }
+
         if(email.isEmpty()){
             editTextemail.setError("donner votre email");
             editTextemail.requestFocus();
@@ -138,7 +167,7 @@ public class MedecinRegisterActivity extends AppCompatActivity implements View.O
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
 
-                    Medcin medcin = new Medcin(fullName,numTel,email,numOrdre);
+                    Medcin medcin = new Medcin(fullName,Integer.parseInt(editTextNumTel.getText().toString()),email,numOrdre);
 
 
                     FirebaseDatabase.getInstance().getReference("Users").child("medecins").child(mAuth.getCurrentUser().getUid())
@@ -153,6 +182,7 @@ public class MedecinRegisterActivity extends AppCompatActivity implements View.O
                                         Toast.makeText(MedecinRegisterActivity.this, "non enregister", Toast.LENGTH_LONG).show();
                                     }
                                     progressBar.setVisibility(View.GONE);
+                                    finish();
                                 }
 
                             });

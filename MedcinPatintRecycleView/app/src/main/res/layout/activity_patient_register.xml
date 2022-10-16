@@ -11,7 +11,8 @@
     <EditText
         android:id="@+id/editTextPatientNumTel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/custum_edittext_background"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
@@ -29,7 +30,8 @@
     <EditText
         android:id="@+id/editTextPatientAge"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/custum_edittext_background"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
@@ -48,7 +50,8 @@
     <EditText
         android:id="@+id/editTextPatRegistEmail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/custum_edittext_background"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
@@ -84,7 +87,8 @@
     <EditText
         android:id="@+id/editTextTextPatRegistPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/custum_edittext_background"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
@@ -103,7 +107,8 @@
     <EditText
         android:id="@+id/editTextTextPatConfRegistPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/custum_edittext_background"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
@@ -134,9 +139,10 @@
     <EditText
         android:id="@+id/editTextPatientCIN"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/custum_edittext_background"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="CIN"
@@ -152,7 +158,8 @@
     <EditText
         android:id="@+id/editTextTextNTel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/custum_edittext_background"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"

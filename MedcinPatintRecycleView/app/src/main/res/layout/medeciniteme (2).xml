@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:layout_margin="10dp"
+    android:padding="50dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="20dp"
+    android:layout_centerInParent="true"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutM"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textViewFullN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Nom complet : "
+            android:textSize="20dp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textViewMFullNom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@+id/textViewFullN"
+            android:text="name"
+            android:textSize="20dp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textViewNO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewMFullNom"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Num d'ordre : "
+            android:textSize="20dp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textViewMNumOrdre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewMFullNom"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@+id/textViewFullN"
+            android:text="Num d'ordre"
+            android:textSize="20dp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/SendImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewNO"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/custtom_button_back"
+            android:text="Envoyer une Image"
+            android:textAllCaps="false"
+            android:textSize="20dp"
+            android:textStyle="bold|italic" />
+
+
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

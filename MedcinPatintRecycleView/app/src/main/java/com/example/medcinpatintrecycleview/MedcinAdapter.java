@@ -55,25 +55,25 @@ public class MedcinAdapter extends RecyclerView.Adapter<MedcinAdapter.MyViewHold
                 Intent intent= new Intent(context,ChatActivity.class);
 
                 reference = FirebaseDatabase.getInstance().getReference().child("Users").child("medecins");
+
+
                 reference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                            for(DataSnapshot ds : snapshot.getChildren()){
-                                Medcin medcin2 = ds.getValue(Medcin.class);
-                                if(medcin2.getNumOrdre().equals(medecin1.getNumOrdre())){
+                        for(DataSnapshot ds : snapshot.getChildren()){
+                            String medNumOrdre = String.valueOf(ds.child("numOrdre").getValue());
+                            if(medNumOrdre.equals(medecin1.getNumOrdre())){
+
+                                intent.putExtra("RECEIVER_ID",ds.getKey());
+                                intent.putExtra("RECEIVER_NAME",medecin1.getFullname());
+                                intent.putExtra("USER_TYPE", 0);
+                                intent.putExtra("PATIENT_CIN",key);
+                                context.startActivity(intent);
 
 
-
-                                    intent.putExtra("RECEIVER_ID",ds.getKey());
-                                    intent.putExtra("RECEIVER_NAME",medcin2.getFullname());
-                                    intent.putExtra("USER_TYPE", 0);
-                                    intent.putExtra("PATIENT_CIN",key);
-                                    context.startActivity(intent);
-
-
-                                }
                             }
+                        }
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {

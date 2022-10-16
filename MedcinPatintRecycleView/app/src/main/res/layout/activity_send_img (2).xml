@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SendImgActivity"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@drawable/gradient_background">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/sendImage"
+        android:padding="10sp"/>
+    <Button
+        android:id="@+id/sendImageBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Envoyer l'image"
+        android:layout_margin="12dp"
+        android:background="@drawable/sender_back"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textSize="20sp"/>
+    <TextView
+        android:id="@+id/textViewDontQuit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ne quittez pas avant que l'image s'envoie"
+        android:textColor="#AC0303"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:visibility="invisible"/>
+
+    <ProgressBar
+        android:id="@+id/SendImgProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:indeterminate="true"
+        android:layout_gravity="center" />
+
+
+
+
+</LinearLayout>

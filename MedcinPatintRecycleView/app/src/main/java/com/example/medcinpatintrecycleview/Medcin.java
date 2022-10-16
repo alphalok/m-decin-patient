@@ -15,6 +15,12 @@ public class Medcin  {
         medcinPatientsCin= new ArrayList<String>();
     }
 
+    public Medcin(String fullname, String numTel, String numOrdre) {
+        Fullname = fullname;
+        NumTel = numTel;
+        NumOrdre = numOrdre;
+    }
+
     public Medcin(){
 
     }

@@ -242,11 +242,11 @@
         <EditText
             android:id="@+id/editTextAjoutVAcc"
             android:layout_width="180dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_below="@+id/guidelineVacci"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
-
+            android:background="@drawable/custum_edittext_background"
             android:hint="vaccination"
             android:textSize="15sp" />
 
@@ -267,7 +267,8 @@
         <EditText
             android:id="@+id/editTextAjoutATCDPerso"
             android:layout_width="180dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
+            android:background="@drawable/custum_edittext_background"
             android:layout_below="@+id/editTextAjoutVAcc"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
@@ -290,7 +291,8 @@
         <EditText
             android:id="@+id/editTextAjoutATCDFami"
             android:layout_width="180dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
+            android:background="@drawable/custum_edittext_background"
             android:layout_below="@+id/editTextAjoutATCDPerso"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
@@ -313,12 +315,13 @@
         <EditText
             android:id="@+id/editTextAjoutFactRisque"
             android:layout_width="180dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_below="@+id/editTextAjoutATCDFami"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:hint="ATCD familiaux"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:background="@drawable/custum_edittext_background"/>
 
         <Button
             android:id="@+id/AjoutFactRisque"

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MedecinProfileActivity"
+    android:background="@drawable/gradient_background">
+
+    <EditText
+        android:id="@+id/searchPatient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Patient Cin"
+        android:textAlignment="center"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/custum_serch_edit_texy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/patientsRecycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="76dp"
+        android:layout_marginBottom="150dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchPatient" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="25dp"
+        app:srcCompat="@drawable/ic_add"
+        android:elevation="10sp"
+        android:backgroundTint="#BDD0D8"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/nouveauPatient_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/addButton"
+        app:layout_constraintEnd_toEndOf="@+id/addButton"
+        app:layout_constraintStart_toStartOf="@+id/addButton"
+        app:srcCompat="@drawable/ic_add_patient"
+        android:elevation="10sp"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/signOut_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/nouveauPatient_btn"
+        app:layout_constraintEnd_toEndOf="@+id/nouveauPatient_btn"
+        app:layout_constraintStart_toStartOf="@+id/nouveauPatient_btn"
+        app:srcCompat="@drawable/ic_sign_out"
+        android:visibility="gone"
+        android:elevation="10sp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

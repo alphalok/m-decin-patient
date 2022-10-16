@@ -49,7 +49,6 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
         Patient patient = patients.get(position);
 
         holder.fullName.setText(patient.getFullname());
-        holder.age.setText(patient.getAge());
         holder.cin.setText(patient.getCin());
 
 
@@ -82,7 +81,7 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-       private TextView age, fullName,cin;
+       private TextView fullName,cin;
        private Button voirDossier;
        private Button sendMessage;
 
@@ -90,12 +89,10 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            age=itemView.findViewById(R.id.textViewAge);
             fullName=itemView.findViewById(R.id.textViewFullNom);
             cin=itemView.findViewById(R.id.textViewMCIN);
 
-            voirDossier =itemView.findViewById(R.id.VoirDossierBTN);
+            voirDossier =itemView.findViewById(R.id.VoirDossierBtn);
             sendMessage = itemView.findViewById(R.id.SendMessageBtn);
 
         }

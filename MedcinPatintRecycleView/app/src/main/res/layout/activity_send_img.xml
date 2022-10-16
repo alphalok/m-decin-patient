@@ -12,16 +12,17 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="450dp"
         android:scaleType="centerCrop"
         android:id="@+id/sendImage"
-        android:padding="10sp"/>
+        android:padding="10sp"
+        />
     <Button
         android:id="@+id/sendImageBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Envoyer l'image"
-        android:layout_margin="12dp"
+        android:layout_margin="30dp"
         android:background="@drawable/sender_back"
         android:textColor="@color/white"
         android:textStyle="bold"
