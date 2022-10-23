@@ -172,7 +172,7 @@ public class SendImgActivity extends AppCompatActivity {
                         messageMembre.setMessage(downloadUri.toString());
                         messageMembre.setReceiverUid(receiver_id);
                         messageMembre.setSenderUid(sender_id);
-                        messageMembre.setType("iv");
+                        messageMembre.setType("i");
 
                         String id = reference1.push().getKey();
                         reference1.child(id).setValue(messageMembre);

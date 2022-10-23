@@ -28,8 +28,52 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
         sender_Img =itemView.findViewById(R.id.sender_Img);
         receiver_Img = itemView.findViewById(R.id.receiver_Img);
 
+        if(currentUid.equals(senderUid)){
+            if(type.equals("i")){
 
-        if(type.equals("text")){
+                receiver.setVisibility(View.GONE);
+                sender.setVisibility(View.GONE);
+                receiver_Img.setVisibility(View.GONE);
+                sender_Img.setVisibility(View.VISIBLE);
+                Picasso.get().load(message).into(sender_Img);
+
+
+            }else if(type.equals("t")){
+
+                receiver.setVisibility(View.GONE);
+                sender.setVisibility(View.VISIBLE);
+                sender.setText(message);
+                sender_Img.setVisibility(View.GONE);
+                receiver_Img.setVisibility(View.GONE);
+
+            }
+
+        }else if (currentUid.equals(receiverUid)){
+
+            if(type.equals("i")){
+
+                receiver.setVisibility(View.GONE);
+                sender.setVisibility(View.GONE);
+                receiver_Img.setVisibility(View.VISIBLE);
+                sender_Img.setVisibility(View.GONE);
+                Picasso.get().load(message).into(receiver_Img);
+
+
+            }else if(type.equals("t")){
+
+                receiver.setVisibility(View.VISIBLE);
+                sender.setVisibility(View.GONE);
+                receiver.setText(message);
+                sender_Img.setVisibility(View.GONE);
+                receiver_Img.setVisibility(View.GONE);
+
+            }
+
+
+        }
+
+/*
+        if(type.equals("t")){
             if(currentUid.equals(senderUid)){
                 receiver.setVisibility(View.GONE);
                 sender.setText(message);
@@ -40,7 +84,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
 
             }
 
-        }else if(type.equals("iv")){
+        }else if(type.equals("i")){
 
             if(currentUid.equals(senderUid)){
                 receiver.setVisibility(View.GONE);
@@ -58,7 +102,7 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
             }
 
         }
-
+*/
 
 
     }

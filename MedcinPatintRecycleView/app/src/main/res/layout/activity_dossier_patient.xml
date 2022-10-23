@@ -319,9 +319,9 @@
             android:layout_below="@+id/editTextAjoutATCDFami"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
-            android:hint="ATCD familiaux"
-            android:textSize="15sp"
-            android:background="@drawable/custum_edittext_background"/>
+            android:background="@drawable/custum_edittext_background"
+            android:hint="Facteur de Risque"
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/AjoutFactRisque"

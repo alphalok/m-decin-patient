@@ -304,7 +304,7 @@ public class ChatActivity extends AppCompatActivity {
         messageMembre.setMessage(message);
         messageMembre.setReceiverUid(reciver_Id);
         messageMembre.setSenderUid(sender_id);
-        messageMembre.setType("text");
+        messageMembre.setType("t");
 
         String id = reference1.push().getKey();
         reference1.child(id).setValue(messageMembre);
