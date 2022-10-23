@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
-            android:text="Dossier du patient"
+            android:text="@string/Dossier_patient"
             android:textColor="@color/Blue_dark"
             android:textSize="17dp"
             android:textStyle="bold|italic" />
@@ -73,7 +73,7 @@
             android:layout_below="@+id/guideline3"
             android:layout_marginStart="20dp"
             android:layout_marginTop="60dp"
-            android:text="Nom Complet : "
+            android:text="@string/nom_complet"
             android:textColor="@color/Blue_dark" />
 
         <TextView
@@ -83,9 +83,9 @@
             android:layout_below="@+id/guideline3"
             android:layout_marginStart="50dp"
             android:layout_marginTop="60dp"
-            android:layout_toRightOf="@+id/textView10"
+            android:layout_toEndOf="@+id/textView10"
             android:text="Nom Complet "
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
 
         <TextView
@@ -95,8 +95,8 @@
             android:layout_below="@+id/textView5"
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
-            android:text="Num de telephone :"
-            android:textColor="@color/Blue_dark"/>
+            android:text="@string/num_téléphone"
+            android:textColor="@color/Blue_dark" />
 
         <TextView
             android:id="@+id/textViewPNumTel"
@@ -105,9 +105,9 @@
             android:layout_below="@+id/textViewPNomComplet"
             android:layout_marginStart="50dp"
             android:layout_marginTop="30dp"
-            android:layout_toRightOf="@+id/textView10"
+            android:layout_toEndOf="@+id/textView10"
             android:text="Num de telephone"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/textView6"
@@ -116,8 +116,8 @@
             android:layout_below="@+id/textView4"
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
-            android:text="Age : "
-            android:textColor="@color/Blue_dark"/>
+            android:text="@string/Age"
+            android:textColor="@color/Blue_dark" />
 
         <TextView
             android:id="@+id/textViewPAge"
@@ -126,9 +126,9 @@
             android:layout_below="@+id/textViewPNumTel"
             android:layout_marginStart="50dp"
             android:layout_marginTop="30dp"
-            android:layout_toRightOf="@+id/textView10"
+            android:layout_toEndOf="@+id/textView10"
             android:text="Age "
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
 
         <TextView
@@ -138,8 +138,8 @@
             android:layout_below="@+id/textView6"
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
-            android:text="CIN : "
-            android:textColor="@color/Blue_dark"/>
+            android:text="@string/cin"
+            android:textColor="@color/Blue_dark" />
 
         <TextView
             android:id="@+id/textViewPCin"
@@ -148,9 +148,9 @@
             android:layout_below="@+id/textViewPAge"
             android:layout_marginStart="50dp"
             android:layout_marginTop="30dp"
-            android:layout_toRightOf="@+id/textView10"
+            android:layout_toEndOf="@+id/textView10"
             android:text="Cin "
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/textView8"
@@ -159,8 +159,8 @@
             android:layout_below="@+id/guidelineCin"
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
-            android:text="ATCDs personnels : "
-            android:textColor="@color/Blue_dark"/>
+            android:text="@string/ATCDs_personnels"
+            android:textColor="@color/Blue_dark" />
 
         <TextView
             android:id="@+id/textViewATCDsperso"
@@ -169,10 +169,10 @@
             android:layout_below="@+id/guidelineCin"
             android:layout_marginStart="50dp"
             android:layout_marginTop="30dp"
-            android:layout_toRightOf="@+id/textView10"
+            android:layout_toEndOf="@+id/textView10"
             android:inputType="textMultiLine"
             android:text="ATCDs personnels "
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/textView9"
@@ -181,8 +181,8 @@
             android:layout_below="@+id/guidelineATCPers"
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
-            android:text="ATCDs familiaux : "
-            android:textColor="@color/Blue_dark"/>
+            android:text="@string/ATCDs_familiaux"
+            android:textColor="@color/Blue_dark" />
 
         <TextView
             android:id="@+id/textViewATCDsfami"
@@ -191,9 +191,9 @@
             android:layout_below="@+id/guidelineATCPers"
             android:layout_marginStart="50dp"
             android:layout_marginTop="30dp"
-            android:layout_toRightOf="@+id/textView10"
+            android:layout_toEndOf="@+id/textView10"
             android:text="ATCDs familiaux "
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/textView10"
@@ -202,8 +202,8 @@
             android:layout_below="@+id/guidelineATCFam"
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
-            android:text="Facteurs de risques : "
-            android:textColor="@color/Blue_dark"/>
+            android:text="@string/Facteurs_risques"
+            android:textColor="@color/Blue_dark" />
 
         <TextView
             android:id="@+id/textViewFactRisq"
@@ -212,9 +212,9 @@
             android:layout_below="@+id/guidelineATCFam"
             android:layout_marginStart="50dp"
             android:layout_marginTop="30dp"
-            android:layout_toRightOf="@+id/textView10"
+            android:layout_toEndOf="@+id/textView10"
             android:text="Facteurs de risques "
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/textView11"
@@ -223,8 +223,8 @@
             android:layout_below="@+id/guidelineFctRisq"
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
-            android:text="Vaccinations :  "
-            android:textColor="@color/Blue_dark"/>
+            android:text="@string/Vaccination"
+            android:textColor="@color/Blue_dark" />
 
 
         <TextView
@@ -234,10 +234,9 @@
             android:layout_below="@+id/guidelineFctRisq"
             android:layout_marginStart="50dp"
             android:layout_marginTop="30dp"
-            android:layout_toRightOf="@+id/textView10"
+            android:layout_toEndOf="@+id/textView10"
             android:text="Vaccinations "
-            android:textColor="@color/black"
-            />
+            android:textColor="@color/black" />
 
         <EditText
             android:id="@+id/editTextAjoutVAcc"
@@ -247,7 +246,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:background="@drawable/custum_edittext_background"
-            android:hint="vaccination"
+            android:hint="@string/Vaccination"
             android:textSize="15sp" />
 
         <Button
@@ -258,9 +257,9 @@
             android:layout_below="@+id/guidelineVacci"
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
-            android:layout_toRightOf="@+id/editTextAjoutVAcc"
+            android:layout_toEndOf="@+id/editTextAjoutVAcc"
             android:background="@drawable/custtom_button_back"
-            android:text="Ajouter une vaccination "
+            android:text="@string/Ajouter_vaccination"
             android:textAllCaps="false"
             android:textSize="12dp" />
 
@@ -268,11 +267,11 @@
             android:id="@+id/editTextAjoutATCDPerso"
             android:layout_width="180dp"
             android:layout_height="45dp"
-            android:background="@drawable/custum_edittext_background"
             android:layout_below="@+id/editTextAjoutVAcc"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
-            android:hint="ATCDs Personnels"
+            android:background="@drawable/custum_edittext_background"
+            android:hint="@string/ATCDs_personnels"
             android:textSize="15sp" />
 
         <Button
@@ -282,9 +281,9 @@
             android:layout_below="@+id/AjoutVacciBtn"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
-            android:layout_toRightOf="@+id/editTextAjoutATCDPerso"
+            android:layout_toEndOf="@+id/editTextAjoutATCDPerso"
             android:background="@drawable/custtom_button_back"
-            android:text="Ajouter une ATCDs Personnels "
+            android:text="@string/Ajouter_ATCDs_Personnels"
             android:textAllCaps="false"
             android:textSize="12dp" />
 
@@ -292,11 +291,11 @@
             android:id="@+id/editTextAjoutATCDFami"
             android:layout_width="180dp"
             android:layout_height="45dp"
-            android:background="@drawable/custum_edittext_background"
             android:layout_below="@+id/editTextAjoutATCDPerso"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
-            android:hint="ATCD familiaux"
+            android:background="@drawable/custum_edittext_background"
+            android:hint="@string/ATCDs_familiaux"
             android:textSize="15sp" />
 
         <Button
@@ -306,9 +305,9 @@
             android:layout_below="@+id/AjoutATCDsPerso"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
-            android:layout_toRightOf="@+id/editTextAjoutATCDFami"
+            android:layout_toEndOf="@+id/editTextAjoutATCDFami"
             android:background="@drawable/custtom_button_back"
-            android:text="Ajouter une ATCD familiaux"
+            android:text="@string/Ajouter_ATCD_familiaux"
             android:textAllCaps="false"
             android:textSize="12dp" />
 
@@ -320,7 +319,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:background="@drawable/custum_edittext_background"
-            android:hint="Facteur de Risque"
+            android:hint="@string/Facteurs_risques"
             android:textSize="15sp" />
 
         <Button
@@ -330,9 +329,9 @@
             android:layout_below="@+id/AjoutATCDsFamil"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
-            android:layout_toRightOf="@+id/editTextAjoutFactRisque"
+            android:layout_toEndOf="@+id/editTextAjoutFactRisque"
             android:background="@drawable/custtom_button_back"
-            android:text="Ajouter un facteur de risque"
+            android:text="@string/Ajouter_facteur_risque"
             android:textAllCaps="false"
             android:textSize="12dp" />
 

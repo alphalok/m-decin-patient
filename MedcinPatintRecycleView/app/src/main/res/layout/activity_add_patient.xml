@@ -16,14 +16,14 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="20dp"
+        android:background="@drawable/custum_edittext_background"
         android:ems="10"
-        android:hint="numéro de téléphone"
+        android:hint="@string/num_téléphone"
         android:inputType="number"
         android:padding="5dp"
         android:textColorHint="@color/white"
         android:textSize="18sp"
-        app:hintTextColor="@color/white"
-        android:background="@drawable/custum_edittext_background"/>
+        app:hintTextColor="@color/white" />
 
     <Button
         android:id="@+id/patientRegisterBtn"
@@ -34,7 +34,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/custtom_button_back"
-        android:text="Enregistrer patient "
+        android:text="@string/enregistrer_patient"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textStyle="bold" />
@@ -48,7 +48,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/custtom_button_back"
-        android:text="Enregistrer medecin "
+        android:text="@string/enregistrer_medecin"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -74,12 +74,12 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="250dp"
         android:layout_marginEnd="20dp"
+        android:background="@drawable/custum_edittext_background"
         android:ems="10"
-        android:hint="CIN"
+        android:hint="@string/cin"
         android:inputType="text"
         android:padding="5dp"
         android:textColorHint="@color/white"
         android:textSize="18sp"
-        app:hintTextColor="@color/white"
-        android:background="@drawable/custum_edittext_background"/>
+        app:hintTextColor="@color/white" />
 </RelativeLayout>

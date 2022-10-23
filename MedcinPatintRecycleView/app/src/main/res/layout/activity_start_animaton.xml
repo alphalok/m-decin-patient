@@ -16,8 +16,7 @@
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10sp"
-        android:src="@drawable/c1"
-        />
+        android:src="@drawable/c1" />
 
     <ImageView
         android:id="@+id/cloud2"
@@ -40,19 +39,10 @@
         android:layout_width="400dp"
         android:layout_height="400dp"
         android:layout_centerInParent="true"
-        app:lottie_autoPlay="true"
         android:elevation="5dp"
+        app:lottie_autoPlay="true"
         app:lottie_rawRes="@raw/doctor" />
 
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Médecin &amp; Patient"
-        android:textColor="@color/Blue_light"
-        android:textSize="25dp"
-        android:textStyle="italic|bold" />
 
 
 </RelativeLayout>

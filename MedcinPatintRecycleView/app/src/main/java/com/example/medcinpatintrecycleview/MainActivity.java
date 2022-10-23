@@ -133,18 +133,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String password = editTextPassword.getText().toString().trim();
 
         if(email.isEmpty()){
-            editTextEmail.setError("donner votre email");
+            editTextEmail.setError(getString(R.string.enter_email));
             editTextEmail.requestFocus();
             return;
         }
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            editTextEmail.setError("donner un email valide");
+            editTextEmail.setError(getString(R.string.donner_email_valide));
             editTextEmail.requestFocus();
             return;
         }
 
         if(password.isEmpty() && password.length()<5){
-            editTextPassword.setError("mot de pass doit avoir plus de 6 charactere");
+            editTextPassword.setError(getString(R.string.match_passord));
             editTextPassword.requestFocus();
             return;
         }
@@ -187,12 +187,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                                     }
                                     else{
-                                        Toast.makeText(MainActivity.this, "ce nest pas un medcin", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MainActivity.this, getString(R.string.non_medcin), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                                 else{
                                     user.sendEmailVerification();
-                                    Toast.makeText(MainActivity.this, "Email Not verifid check your email", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity.this, getString(R.string.verify_your_email), Toast.LENGTH_SHORT).show();
                                 }
                                 progressBar.setVisibility(View.GONE);
 
@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         finish();
                                     }
                                     else{
-                                        Toast.makeText(MainActivity.this, "ce nest pas un patient", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MainActivity.this, getString(R.string.non_patient), Toast.LENGTH_SHORT).show();
                                     }
 
                                 progressBar.setVisibility(View.GONE);
@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
                 else{
-                    Toast.makeText(MainActivity.this, "faild to sign in", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, getString(R.string.erreur), Toast.LENGTH_LONG).show();
                 }
                 progressBar.setVisibility(View.GONE);
             }
@@ -288,50 +288,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Patient patient = new Patient();
 
         for(DataSnapshot ds : dataSnapshot.child("patients").getChildren()){
-            Log.d("Tag","cheking email existe : datasnapshot "+ ds);
-
             patient.setEmai(ds.getValue(Patient.class).getEmai());
             if(patient.getEmai().equals(email)){
-                Log.d("tag ", "does exisste");
                 return true;
             }
         }
-        Log.d("tag ", "does not  exisste");
         return false;
-
     }
 
     private boolean  checkUserIfIsAdmin(String email,DataSnapshot dataSnapshot){
         Admin admin = new Admin();
         for(DataSnapshot ds : dataSnapshot.child("admin").getChildren()){
-            Log.d("Tag","cheking email existe : datasnapshot "+ ds);
 
             admin.setEmai(ds.getValue(Patient.class).getEmai());
             if(admin.getEmai().equals(email)){
-                Log.d("tag ", "does exisste");
                 return true;
             }
         }
-        Log.d("tag ", "does not  exisste");
         return false;
-
-
     }
 
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("voulez vous quitter l'application");
-        builder.setMessage("etes vous sur de vouloir quitter l'application");
+        builder.setTitle(getString(R.string.quite_app));
+        builder.setMessage(getString(R.string.quiter_application));
 
-        builder.setPositiveButton("Quitter", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getString(R.string.quitter), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 MainActivity.super.onBackPressed();
                 finish();
             }
         });
-        builder.setNegativeButton("Rester", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getString(R.string.rester), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 

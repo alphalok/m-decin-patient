@@ -1,3 +1,70 @@
 <resources>
     <string name="app_name">Médecin&amp;Patient</string>
+
+    <string name="nom_complet">Nom complet</string>
+    <string name="cin">CIN</string>
+    <string name="Num_ordre">Num d\'ordre</string>
+    <string name="voir_dossier">Voir dossier</string>
+    <string name="envoyer_message">envoyer un message</string>
+    <string name="envoyer_image">Envoyer l\'image</string>
+    <string name="dont_quit">Ne quittez pas avant que l\'image s\'envoie</string>
+    <string name="enter_email">Enter votre email</string>
+    <string name="se_connecter">se connecter</string>
+
+    <string name="reset_password">Réinitialiser le mot de passe</string>
+
+    <string name="num_téléphone">Numéro de téléphone</string>
+    <string name="Age">Age</string>
+    <string name="email">Email</string>
+    <string name="password">Mot de pass</string>
+    <string name="re_password">confirmer votre mot de pass</string>
+    <string name="enregistrer">Enregistrer</string>
+    <string name="forgot_pwd">mot de pass oublié?</string>
+    <string name="patient">Patient</string>
+    <string name="médecin">Médecin</string>
+    <string name="Dossier_patient">Dossier du patient</string>
+    <string name="ATCDs_personnels">ATCDs personnels</string>
+    <string name="ATCDs_familiaux">ATCDs familiaux</string>
+    <string name="Facteurs_risques">Facteurs de risques</string>
+    <string name="Vaccination">Vaccination</string>
+    <string name="Ajouter_vaccination">Ajouter une vaccination</string>
+    <string name="Ajouter_ATCDs_Personnels">Ajouter un ATCD Personnels</string>
+    <string name="Ajouter_facteur_risque">Ajouter un facteurs de risques</string>
+    <string name="Ajouter_ATCD_familiaux">Ajouter un ATCD familial</string>
+
+    <string name="message">Entrer votre message</string>
+    <string name="enregistrer_patient">Enregistrer patient</string>
+    <string name="enregistrer_medecin">Enregistrer medecin</string>
+    <string name="erreur">Quelque chose ne va pas ! réessayer !</string>
+
+    <string name="veuillez_sélectionner_image">Veuillez sélectionner une image</string>
+    <string name="donner_email_valide">Veuillez donner un email valide !</string>
+    <string name="check_email">Consultez votre boite email pour réinitialiser votre mot de passe</string>
+    <string name="entrer_Numero_Valide">Entrer un Numero Valide</string>
+    <string name="entrer_CIN">Entrer votre CIN</string>
+    <string name="entrer_nom_complet">Entrer votre nom complet</string>
+    <string name="entrer_age">Entrer votre age</string>
+    <string name="entrer_password">Entrer un mot de pass</string>
+    <string name="entrer_num_ordre">Entrer votre numero d\'ordre</string>
+    <string name="demande_being_verified">Votre demande d\'enregistrement sera vérifiée</string>
+    <string name="match_passord">Entrer un mot de pass valide</string>
+    <string name="quite_app">Voulez vous quitter l\'application</string>
+    <string name="quiter_application">etes vous sur de vouloir quitter l\'application</string>
+    <string name="quitter">Quitter</string>
+    <string name="rester">Rester</string>
+    <string name="non_medcin">ce nest pas un medcin</string>
+    <string name="non_patient">ce nest pas un patient</string>
+    <string name="verify_your_email">email non vérifié vérifier votre boîte email</string>
+    <string name="utilisateur_manquant">utilisateur manquant</string>
+    <string name="quitter_conv">voulez vous quitter la conversation</string>
+     <string name="quitter_conversation">Votre conversation peut etre supprimé</string>
+    <string name="image_non_selectionner">aucun image a ete selectionné</string>
+    <string name="donner_message">Ecrivez votre message</string>
+
+
+
+
+
+
+
 </resources>

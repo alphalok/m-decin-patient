@@ -103,10 +103,10 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(AdminActivity.this);
-                builder.setTitle("voulez vous quitter l'application");
-                builder.setMessage("êtes-vous sûr de vouloir vous déconnecter ");
+                builder.setTitle(getString(R.string.quite_app));
+                builder.setMessage(getString(R.string.quiter_application));
 
-                builder.setPositiveButton("se déconnecter", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(getString(R.string.quitter), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         auth.signOut();
@@ -114,7 +114,7 @@ public class AdminActivity extends AppCompatActivity {
                         finish();
                     }
                 });
-                builder.setNegativeButton("Rester", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(getString(R.string.rester), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -131,17 +131,17 @@ public class AdminActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("voulez vous quitter l'application");
-        builder.setMessage("êtes vous sûr de vouloir quitter l'application");
+        builder.setTitle(getString(R.string.quite_app));
+        builder.setMessage(getString(R.string.quiter_application));
 
-        builder.setPositiveButton("Quitter", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getString(R.string.quitter), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 AdminActivity.super.onBackPressed();
                 finish();
             }
         });
-        builder.setNegativeButton("Rester", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getString(R.string.rester), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 

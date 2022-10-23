@@ -18,7 +18,6 @@ public class StartAnimatonActivity extends AppCompatActivity {
 
     private RelativeLayout relativeLayout;
 
-    TextView welcome ;
     ImageView cloud1,cloud2,cloud3;
     LottieAnimationView animation;
 
@@ -34,8 +33,6 @@ public class StartAnimatonActivity extends AppCompatActivity {
         relativeLayout = findViewById(R.id.mainAnimation);
 
 
-
-        welcome = findViewById(R.id.welcome);
         cloud1 = findViewById(R.id.cloud1);
         cloud2 = findViewById(R.id.cloud2);
         cloud3 = findViewById(R.id.cloud3);
@@ -44,7 +41,6 @@ public class StartAnimatonActivity extends AppCompatActivity {
         cloud1.animate().translationY(500).setDuration(1000).setStartDelay(800);
         cloud3.animate().translationX(800).setDuration(2000).setStartDelay(500);
         cloud2.animate().translationX(-800).setDuration(2000).setStartDelay(500);
-        welcome.animate().translationY(1550).setDuration(1000).setStartDelay(1500);
 
         Handler handler = new Handler();
 

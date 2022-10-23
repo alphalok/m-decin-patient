@@ -62,17 +62,17 @@ public class MedecinProfileActivity extends AppCompatActivity {
     public void onBackPressed() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("voulez vous quitter l'application");
-        builder.setMessage("etes vous sur de vouloir quitter l'application");
+        builder.setTitle(getString(R.string.quite_app));
+        builder.setMessage(getString(R.string.quiter_application));
 
-        builder.setPositiveButton("Quitter", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getString(R.string.quitter), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 MedecinProfileActivity.super.onBackPressed();
                 finish();
             }
         });
-        builder.setNegativeButton("Rester", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getString(R.string.rester), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 

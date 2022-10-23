@@ -127,35 +127,35 @@ public class MedecinRegisterActivity extends AppCompatActivity implements View.O
 
 
         if(editTextNumOrdre.getText().toString().trim().isEmpty()){
-            editTextNumTel.setError("donner votre Numero d'ordre ");
+            editTextNumTel.setError(getString(R.string.entrer_num_ordre));
             editTextNumTel.requestFocus();
             return;
         }
 
         if(fullName.isEmpty()){
-            editTextfullName.setError("entrer votre nom");
+            editTextfullName.setError(getString(R.string.entrer_nom_complet));
             editTextfullName.requestFocus();
             return;
         }
         if(editTextNumTel.getText().toString().trim().isEmpty()){
-            editTextNumTel.setError("donner votre Numero d'ordre ");
+            editTextNumTel.setError(getString(R.string.entrer_Numero_Valide));
             editTextNumTel.requestFocus();
             return;
         }
 
         if(email.isEmpty()){
-            editTextemail.setError("donner votre email");
+            editTextemail.setError(getString(R.string.enter_email));
             editTextemail.requestFocus();
             return;
         }
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            editTextemail.setError("donner un email valide");
+            editTextemail.setError(getString(R.string.donner_email_valide));
             editTextemail.requestFocus();
             return;
         }
 
         if(password.isEmpty() && password.length()<5){
-            editTextpassword.setError("mot de pass doit avoir plus de 6 charactere");
+            editTextpassword.setError(getString(R.string.entrer_password));
             editTextpassword.requestFocus();
             return;
         }
@@ -175,11 +175,11 @@ public class MedecinRegisterActivity extends AppCompatActivity implements View.O
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        Toast.makeText(MedecinRegisterActivity.this, "medcin enregister", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(MedecinRegisterActivity.this, getString(R.string.enregistrer), Toast.LENGTH_LONG).show();
                                         startActivity(new Intent(MedecinRegisterActivity.this,MainActivity.class));
                                     }
                                     else {
-                                        Toast.makeText(MedecinRegisterActivity.this, "non enregister", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(MedecinRegisterActivity.this, getString(R.string.erreur), Toast.LENGTH_LONG).show();
                                     }
                                     progressBar.setVisibility(View.GONE);
                                     finish();
@@ -188,7 +188,7 @@ public class MedecinRegisterActivity extends AppCompatActivity implements View.O
                             });
                 }
                 else {
-                    Toast.makeText(MedecinRegisterActivity.this, "Failed to regist'tetete! ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MedecinRegisterActivity.this, getString(R.string.erreur), Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.GONE);
                 }
 

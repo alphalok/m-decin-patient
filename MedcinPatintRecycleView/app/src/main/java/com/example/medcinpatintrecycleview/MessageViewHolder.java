@@ -72,37 +72,6 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
 
         }
 
-/*
-        if(type.equals("t")){
-            if(currentUid.equals(senderUid)){
-                receiver.setVisibility(View.GONE);
-                sender.setText(message);
-
-            }else if (currentUid.equals(receiverUid)){
-                sender.setVisibility(View.GONE);
-                receiver.setText(message);
-
-            }
-
-        }else if(type.equals("i")){
-
-            if(currentUid.equals(senderUid)){
-                receiver.setVisibility(View.GONE);
-                sender.setVisibility(View.GONE);
-                receiver_Img.setVisibility(View.GONE);
-                sender_Img.setVisibility(View.VISIBLE);
-                Picasso.get().load(message).into(sender_Img);
-
-            }else if(currentUid.equals(receiverUid)){
-                receiver.setVisibility(View.GONE);
-                sender.setVisibility(View.GONE);
-                sender_Img.setVisibility(View.GONE);
-                receiver_Img.setVisibility(View.VISIBLE);
-                Picasso.get().load(message).into(receiver_Img);
-            }
-
-        }
-*/
 
 
     }

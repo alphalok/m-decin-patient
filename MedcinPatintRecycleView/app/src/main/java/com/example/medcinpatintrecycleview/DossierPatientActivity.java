@@ -149,7 +149,7 @@ public class DossierPatientActivity extends AppCompatActivity implements View.On
         reference.child("patients").child(patient.getCin()).child("vaccination").push().setValue(vaccination).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                Toast.makeText(DossierPatientActivity.this, "l'enregistrement a été effectué avec succès", Toast.LENGTH_LONG).show();
+                Toast.makeText(DossierPatientActivity.this, getString(R.string.enregistrer), Toast.LENGTH_LONG).show();
                 editTextAjoutVAcc.setText("");
             }
         });
@@ -160,7 +160,7 @@ public class DossierPatientActivity extends AppCompatActivity implements View.On
         String atcdPerso = editTextAjoutATCDPerso.getText().toString().trim();
 
         if(atcdPerso.isEmpty()){
-            editTextAjoutATCDPerso.setError("veuillez entrer une vaccination");
+            editTextAjoutATCDPerso.setError("veuillez entrer un ATCDs Personnels");
             editTextAjoutATCDPerso.requestFocus();
             return;
         }
@@ -168,7 +168,7 @@ public class DossierPatientActivity extends AppCompatActivity implements View.On
         reference.child("patients").child(patient.getCin()).child("ATCDs_Personnels").push().setValue(atcdPerso).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                Toast.makeText(DossierPatientActivity.this, "l'enregistrement a été effectué avec succès", Toast.LENGTH_LONG).show();
+                Toast.makeText(DossierPatientActivity.this, getString(R.string.enregistrer), Toast.LENGTH_LONG).show();
                 editTextAjoutATCDPerso.setText("");
             }
         });
@@ -178,7 +178,7 @@ public class DossierPatientActivity extends AppCompatActivity implements View.On
         String atcdFamil = editTextAjoutATCDFami.getText().toString().trim();
 
         if(atcdFamil.isEmpty()){
-            editTextAjoutATCDFami.setError("veuillez entrer une vaccination");
+            editTextAjoutATCDFami.setError("veuillez entrer un ATCD familial");
             editTextAjoutATCDFami.requestFocus();
             return;
         }
@@ -186,7 +186,7 @@ public class DossierPatientActivity extends AppCompatActivity implements View.On
         reference.child("patients").child(patient.getCin()).child("ATCDs_Familiaux").push().setValue(atcdFamil).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                Toast.makeText(DossierPatientActivity.this, "l'enregistrement a été effectué avec succès", Toast.LENGTH_LONG).show();
+                Toast.makeText(DossierPatientActivity.this, getString(R.string.enregistrer), Toast.LENGTH_LONG).show();
                 editTextAjoutATCDFami.setText("");
             }
         });
@@ -196,7 +196,7 @@ public class DossierPatientActivity extends AppCompatActivity implements View.On
         String FacteurRisque = editTextAjoutFactRisque.getText().toString().trim();
 
         if(FacteurRisque.isEmpty()){
-            editTextAjoutFactRisque.setError("veuillez entrer une vaccination");
+            editTextAjoutFactRisque.setError("veuillez entrer un facteurs de risques");
             editTextAjoutFactRisque.requestFocus();
             return;
         }
@@ -204,7 +204,7 @@ public class DossierPatientActivity extends AppCompatActivity implements View.On
         reference.child("patients").child(patient.getCin()).child("Facteur_Risque").push().setValue(FacteurRisque).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                Toast.makeText(DossierPatientActivity.this, "l'enregistrement a été effectué avec succès", Toast.LENGTH_LONG).show();
+                Toast.makeText(DossierPatientActivity.this, getString(R.string.enregistrer), Toast.LENGTH_LONG).show();
                 editTextAjoutFactRisque.setText("");
             }
         });

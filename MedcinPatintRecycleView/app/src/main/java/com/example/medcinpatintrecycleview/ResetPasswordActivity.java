@@ -80,13 +80,13 @@ public class ResetPasswordActivity extends AppCompatActivity {
         String email = emailEditText.getText().toString().trim();
 
         if(email.isEmpty()){
-            emailEditText.setError("Email is required ! ");
+            emailEditText.setError(getString(R.string.enter_email));
             emailEditText.requestFocus();
             return;
         }
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            emailEditText.setError("please provide a valid email ! ");
+            emailEditText.setError(getString(R.string.donner_email_valide));
             emailEditText.requestFocus();
             return;
         }
@@ -94,10 +94,10 @@ public class ResetPasswordActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(ResetPasswordActivity.this, "check your email to reset your password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ResetPasswordActivity.this, getString(R.string.check_email), Toast.LENGTH_LONG).show();
                     startActivity(new Intent(ResetPasswordActivity.this,MainActivity.class));
                 }else {
-                    Toast.makeText(ResetPasswordActivity.this, "Something is wrong ! try again !", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ResetPasswordActivity.this,getString(R.string.erreur), Toast.LENGTH_LONG).show();
                 }
             }
         });

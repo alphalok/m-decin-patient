@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Médecin&amp;Patient</string>
+
+    <string name="nom_complet">الاسم الكامل</string>
+    <string name="cin">رقم البطاقة الوطنية</string>
+    <string name="Num_ordre">رقم الترتيب</string>
+    <string name="voir_dossier">الملف الطبي</string>
+    <string name="envoyer_message">إبعث رسالة</string>
+    <string name="envoyer_image">إرسال صورة</string>
+    <string name="dont_quit">لا تغلق حتى ترسل الصورة</string>
+    <string name="enter_email">أدخل بريدك الإلكتروني</string>
+    <string name="reset_password">اعد تعيين كلمه السر</string>
+
+    <string name="num_téléphone">رقم الهاتف</string>
+    <string name="Age">السن</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="password">كلمة المرور</string>
+    <string name="re_password">أكد رقمك السري</string>
+    <string name="enregistrer">تسجيل</string>
+    <string name="forgot_pwd">هل نسيت كلمة السر؟</string>
+    <string name="patient">المريض</string>
+    <string name="médecin">طبيب</string>
+    <string name="Dossier_patient">الملف الطبي</string>
+    <string name="ATCDs_personnels">سوابق شخصية</string>
+    <string name="ATCDs_familiaux"> سوابق عائلية</string>
+    <string name="Facteurs_risques">عوامل الخطر</string>
+    <string name="Vaccination">التلقيح</string>
+    <string name="Ajouter_vaccination">إضافة تلقيح</string>
+    <string name="Ajouter_ATCDs_Personnels">إضافة سوابق شخصية</string>
+    <string name="Ajouter_facteur_risque">إضافة عامل خطر</string>
+    <string name="Ajouter_ATCD_familiaux">إضافة سوابق عائلية</string>
+
+    <string name="message">أدخل رسالتك</string>
+    <string name="enregistrer_patient">تسجيل المريض</string>
+    <string name="erreur">!هناك شئ غير صحيح ! حاول مرة أخرى</string>
+
+    <string name="veuillez_sélectionner_image">رجاءا تحديد صورة</string>
+    <string name="donner_email_valide">!يرجى إدخال البريد الإلكتروني الصحيح</string>
+    <string name="check_email">تحقق من بريدك الإلكتروني لإعادة تعيين كلمة المرور الخاصة بك</string>
+    <string name="entrer_Numero_Valide">أدخل رقمًا صالحًا</string>
+    <string name="entrer_CIN">الخاص بك CIN أدخل</string>
+    <string name="entrer_nom_complet">أدخل اسمك الكامل</string>
+    <string name="entrer_age">أدخل عمرك</string>
+    <string name="entrer_password">أدخل كلمة المرور</string>
+    <string name="entrer_num_ordre">أدخل رقمك الخاص</string>
+    <string name="demande_being_verified">سيتم التحقق من طلب التسجيل الخاص بك</string>
+    <string name="match_passord">أدخل كلمة مرور صالحة</string>
+    <string name="quite_app">هل تريد الخروج من التطبيق</string>
+    <string name="quiter_application">هل أنت متأكد أنك تريد الخروج من التطبيق</string>
+    <string name="quitter">مغادرة</string>
+    <string name="rester">البقاء</string>
+    <string name="non_medcin">انت ليس طبيبا</string>
+    <string name="non_patient">انت ليس مريضا</string>
+    <string name="verify_your_email">لم يتم تأكيد البريد الإلكتروني تحقق من بريدك الإلكتروني</string>
+    <string name="utilisateur_manquant">مستخدم غير موجود</string>
+    <string name="quitter_conv">هل تريد ترك المحادثة</string>
+    <string name="quitter_conversation">يمكن حذف محادثتك</string>
+    <string name="image_non_selectionner">لم يتم اختيار أي صورة</string>
+    <string name="donner_message">اكتب رسالتك</string>
+
+    <string name="se_connecter"> إتصال</string>
+    <string name="enregistrer_medecin">تسجيل الطبيب</string>
+
+
+
+</resources>

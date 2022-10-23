@@ -28,14 +28,13 @@ import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
 
 public class PatientRegisterActivity extends AppCompatActivity {
 
-    private EditText editTextemail, editTextage, editTextFullName, editTextCIN, editTextPassword,editTextNumTelephone,editTextConfirmPassword;
+    private EditText editTextemail, editTextage, editTextFullName, editTextCIN, editTextPassword, editTextNumTelephone, editTextConfirmPassword;
     private Button registerBtn;
     private ProgressBar patientProgressBar;
 
     private FirebaseAuth auth;
-    private String medcinId,patient_cin;
+    private String medcinId, patient_cin;
     private View view;
-
 
 
     @Override
@@ -49,34 +48,31 @@ public class PatientRegisterActivity extends AppCompatActivity {
         view.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
             @Override
             public void onSystemUiVisibilityChange(int i) {
-                if(i ==0){
+                if (i == 0) {
                     view.setSystemUiVisibility(hideSystemUi());
                 }
             }
         });
 
 
-
-
-
         ///////////instaciation des Ui element///////////////
-        editTextage=findViewById(R.id.editTextPatientAge);
-        editTextemail=findViewById(R.id.editTextPatRegistEmail);
-        editTextPassword=findViewById(R.id.editTextTextPatRegistPassword);
-        editTextFullName=findViewById(R.id.editTextPatientNumTel);
-        editTextCIN=findViewById(R.id.editTextPatientCIN);
-        editTextNumTelephone=findViewById(R.id.editTextTextNTel);
+        editTextage = findViewById(R.id.editTextPatientAge);
+        editTextemail = findViewById(R.id.editTextPatRegistEmail);
+        editTextPassword = findViewById(R.id.editTextTextPatRegistPassword);
+        editTextFullName = findViewById(R.id.editTextPatientNumTel);
+        editTextCIN = findViewById(R.id.editTextPatientCIN);
+        editTextNumTelephone = findViewById(R.id.editTextTextNTel);
 
-        registerBtn=findViewById(R.id.patientRegistBtn);
-        patientProgressBar=findViewById(R.id.patientProgressBar);
-        editTextConfirmPassword=findViewById(R.id.editTextTextPatConfRegistPassword);
+        registerBtn = findViewById(R.id.patientRegistBtn);
+        patientProgressBar = findViewById(R.id.patientProgressBar);
+        editTextConfirmPassword = findViewById(R.id.editTextTextPatConfRegistPassword);
 
-        auth=FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
 
 
         ////////////////// Receive referral Link //////////////////
 
-        medcinId = getIntent().getStringExtra("MEDECIN_NUM_ORDRE");
+        medcinId = getIntent().getStringExtra("MEDECIN_ID");
 
         patient_cin = getIntent().getStringExtra("MEDECIN_NUM_ORDRE");
 
@@ -95,13 +91,13 @@ public class PatientRegisterActivity extends AppCompatActivity {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        if(hasFocus){
+        if (hasFocus) {
             view.setSystemUiVisibility(hideSystemUi());
         }
 
     }
 
-    private int hideSystemUi(){
+    private int hideSystemUi() {
         return View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                 | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -110,65 +106,64 @@ public class PatientRegisterActivity extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
     }
 
-    private void registerUser () {
+    private void registerUser() {
 
         String email = editTextemail.getText().toString().trim();
         String age = editTextage.getText().toString().trim();
         String fullName = editTextFullName.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
         String cin = editTextCIN.getText().toString().trim();
-        String numTel =editTextNumTelephone.getText().toString().trim();
+        String numTel = editTextNumTelephone.getText().toString().trim();
 
-        String confirmPwd=editTextConfirmPassword.toString().trim();
-
+        String confirmPwd = editTextConfirmPassword.toString().trim();
 
 
         if (cin.isEmpty()) {
-            editTextCIN.setError("entrer votre CIN");
+            editTextCIN.setError(getString(R.string.entrer_CIN));
             editTextCIN.requestFocus();
             return;
         }
 
-        if(numTel.length()!=10){
-            editTextNumTelephone.setError("Entrer un Numero Valide");
+        if (numTel.length() != 10) {
+            editTextNumTelephone.setError(getString(R.string.entrer_Numero_Valide));
             editTextNumTelephone.requestFocus();
             return;
         }
 
 
         if (fullName.isEmpty()) {
-            editTextFullName.setError("entrer votre nom");
+            editTextFullName.setError(getString(R.string.entrer_nom_complet));
             editTextFullName.requestFocus();
             return;
         }
         if (age.isEmpty()) {
-            editTextage.setError("donner votre age");
+            editTextage.setError(getString(R.string.entrer_age));
             editTextage.requestFocus();
             return;
         }
         if (email.isEmpty()) {
-            editTextemail.setError("donner votre email");
+            editTextemail.setError(getString(R.string.donner_email_valide));
             editTextemail.requestFocus();
             return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            editTextemail.setError("donner un email valide");
+            editTextemail.setError(getString(R.string.enter_email));
             editTextemail.requestFocus();
             return;
         }
 
         if (password.isEmpty() && password.length() < 5) {
-            editTextPassword.setError("mot de pass doit avoir plus de 6 charactere");
+            editTextPassword.setError(getString(R.string.match_passord));
             editTextPassword.requestFocus();
             return;
         }
         if (confirmPwd.isEmpty()) {
-            editTextConfirmPassword.setError("confirmer votre mot de pass");
+            editTextConfirmPassword.setError(getString(R.string.entrer_password));
             editTextConfirmPassword.requestFocus();
             return;
         }
-        if(confirmPwd.contains(password)){
-            editTextConfirmPassword.setError("entrer un mot de pass valide");
+        if (confirmPwd.contains(password)) {
+            editTextConfirmPassword.setError(getString(R.string.match_passord));
             editTextConfirmPassword.requestFocus();
             return;
         }
@@ -176,46 +171,40 @@ public class PatientRegisterActivity extends AppCompatActivity {
         patientProgressBar.setVisibility(View.VISIBLE);
 
 
-
-        auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(PatientRegisterActivity.this, new OnCompleteListener<AuthResult>() {
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(PatientRegisterActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
 
-                    Patient patient = new Patient(fullName,age,email,cin,numTel);
+                    Patient patient = new Patient(fullName, age, email, cin, numTel);
 
                     FirebaseDatabase.getInstance().getReference("Users").child("patients").child(patient.getCin())
                             .setValue(patient).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
-                                        Toast.makeText(PatientRegisterActivity.this, " enregistrer", Toast.LENGTH_LONG).show();
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(PatientRegisterActivity.this, getString(R.string.enregistrer), Toast.LENGTH_LONG).show();
                                         patientProgressBar.setVisibility(View.GONE);
                                         FirebaseDatabase.getInstance().getReference("Users").child("patients").child(patient.getCin()).child("patientMedcins").push().setValue(medcinId);
 
                                         //startActivity( new Intent(PatientRegisterActivity.this,MedecinProfileActivity.class));
                                         finish();
 
-                                    }
-                                    else{
-                                        Toast.makeText(PatientRegisterActivity.this, "non enregister", Toast.LENGTH_LONG).show();
+                                    } else {
+                                        Toast.makeText(PatientRegisterActivity.this, getString(R.string.erreur), Toast.LENGTH_LONG).show();
                                         patientProgressBar.setVisibility(View.GONE);
                                     }
                                 }
                             });
 
-                }
-                else{
-                    Toast.makeText(PatientRegisterActivity.this, "Failed to register !! ", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(PatientRegisterActivity.this, getString(R.string.erreur), Toast.LENGTH_LONG).show();
                     patientProgressBar.setVisibility(View.GONE);
                 }
 
 
-
-
             }
         });
-
 
 
     }

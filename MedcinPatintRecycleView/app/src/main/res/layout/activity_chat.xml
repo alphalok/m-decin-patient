@@ -58,7 +58,7 @@
         android:layout_width="320dp"
         android:layout_marginBottom="5dp"
         android:layout_height="40dp"
-        android:hint="Entrer votre message message"
+        android:hint="@string/message"
         android:padding="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/Blue_light"
@@ -72,14 +72,14 @@
     <ImageButton
         android:id="@+id/camButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="@android:color/transparent"
         android:padding="10dp"
         android:layout_marginBottom="5dp"
         android:src="@drawable/ic_baseline_camera"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/MessageET"
-        android:layout_marginRight="5dp"
+        android:layout_margin="5dp"
         android:layout_marginStart="2dp"/>
 
 

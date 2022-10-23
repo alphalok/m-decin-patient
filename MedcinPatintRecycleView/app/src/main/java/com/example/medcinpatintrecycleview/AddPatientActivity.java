@@ -107,7 +107,7 @@ public class AddPatientActivity extends AppCompatActivity {
                 editTextCIN.setEnabled(false);
             }
             else {
-                Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.erreur), Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -150,12 +150,12 @@ public class AddPatientActivity extends AppCompatActivity {
                     String cin = editTextCIN.getText().toString().trim();
 
                     if (cin.isEmpty()) {
-                        editTextCIN.setError("entrer votre CIN");
+                        editTextCIN.setError(getString(R.string.entrer_CIN));
                         editTextCIN.requestFocus();
                     }
 
                     if (phoneNumber.isEmpty()) {
-                        editTextPhoneNumber.setError("entrer votre nom");
+                        editTextPhoneNumber.setError(getString(R.string.entrer_Numero_Valide));
                         editTextPhoneNumber.requestFocus();
                         return;
                     }
@@ -170,7 +170,7 @@ public class AddPatientActivity extends AppCompatActivity {
                             if(snapshot.child(cin).exists()){
                                 reference.child("medecins").child(userUid).child("medcinPatients").push().setValue(cin);
                                 reference.child("patients").child(cin).child("patientMedcins").push().setValue(userUid);
-                                Toast.makeText(AddPatientActivity.this, "Patient enregistrer", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AddPatientActivity.this, "Patient a été  enregistrer", Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.GONE);
                                 startActivity(new Intent(AddPatientActivity.this,MedecinProfileActivity.class));
                                 finish();
@@ -319,7 +319,7 @@ public class AddPatientActivity extends AppCompatActivity {
                     Toast.makeText(AddPatientActivity.this, "Médecin a été Accepter", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    Toast.makeText(AddPatientActivity.this, "Un probleme a survenu", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddPatientActivity.this, getString(R.string.erreur), Toast.LENGTH_SHORT).show();
                 }
             }
         });

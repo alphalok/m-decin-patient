@@ -40,7 +40,7 @@ public class ChatActivity extends AppCompatActivity {
     private TextView chatUserName;
     private EditText messageEt;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference reference1,reference2,reference;
+    private DatabaseReference reference1,reference2;
     private MessageMembre messageMembre;
 
     private String reciver_name,reciver_Id,sender_id;
@@ -98,7 +98,7 @@ public class ChatActivity extends AppCompatActivity {
             reciver_name = bundle.getString("RECEIVER_NAME");
 
         }else {
-            Toast.makeText(this, "utilisateur manquant", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.utilisateur_manquant), Toast.LENGTH_SHORT).show();
             finish();
         }
 
@@ -113,16 +113,16 @@ public class ChatActivity extends AppCompatActivity {
                 }
                 else{
                     AlertDialog.Builder builder = new AlertDialog.Builder(ChatActivity.this);
-                    builder.setTitle("voulez vous quitter la conversation");
-                    builder.setMessage("Votre conversation peut etre supprimé");
+                    builder.setTitle(getString(R.string.quitter_conv));
+                    builder.setMessage(getString(R.string.quitter_conversation));
 
-                    builder.setPositiveButton("Quitter", new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton(getString(R.string.quitter), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             finish();
                         }
                     });
-                    builder.setNegativeButton("Rester", new DialogInterface.OnClickListener() {
+                    builder.setNegativeButton(getString(R.string.rester), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -162,6 +162,8 @@ public class ChatActivity extends AppCompatActivity {
                 startActivityForResult(intent,PICK_IMG);
             }
         });
+
+
 
     }
     @Override
@@ -204,7 +206,8 @@ public class ChatActivity extends AppCompatActivity {
 
         }
         else {
-            Toast.makeText(this, "aucun image a ete selectionné", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(this, getString(R.string.image_non_selectionner), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -216,17 +219,17 @@ public class ChatActivity extends AppCompatActivity {
         }
         else {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("voulez vous quitter la conversation");
-            builder.setMessage("Votre conversation peut etre supprimé");
+            builder.setTitle(getString(R.string.quitter_conv));
+            builder.setMessage(getString(R.string.quitter_conversation));
 
-            builder.setPositiveButton("Quitter", new DialogInterface.OnClickListener() {
+            builder.setPositiveButton(getString(R.string.quitter), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     ChatActivity.super.onBackPressed();
                     finish();
                 }
             });
-            builder.setNegativeButton("Rester", new DialogInterface.OnClickListener() {
+            builder.setNegativeButton(getString(R.string.rester), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -252,8 +255,6 @@ public class ChatActivity extends AppCompatActivity {
         reference1 = database.getReference("Message").child(sender_id).child(reciver_Id);
         reference2 = database.getReference("Message").child(reciver_Id).child(sender_id);
 
-       // Toast.makeText(ChatActivity.this, reciver_Id, Toast.LENGTH_SHORT).show();
-
         FirebaseRecyclerOptions<MessageMembre> options1 =
                 new FirebaseRecyclerOptions.Builder<MessageMembre>()
                         .setQuery(reference1,MessageMembre.class).build();
@@ -264,6 +265,27 @@ public class ChatActivity extends AppCompatActivity {
                     @Override
                     protected void onBindViewHolder(@NonNull MessageViewHolder holder, int position, @NonNull MessageMembre model) {
                         holder.SetMessage(getApplication(),model.getMessage(),model.getTime(),model.getDate(),model.getType(),model.getSenderUid(),model.getReceiverUid(),sender_id);
+                        holder.receiver_Img.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(ChatActivity.this,FullScreenImgActivity.class);
+                                intent.putExtra("IMG",model.getMessage());
+                                startActivity(intent);
+
+                                //Toast.makeText(ChatActivity.this,model.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        holder.sender_Img.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(ChatActivity.this,FullScreenImgActivity.class);
+                                intent.putExtra("IMG",model.getMessage());
+                                startActivity(intent);
+                                //Toast.makeText(ChatActivity.this, holder.sender_Img.getDrawable().toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+
                     }
 
                     @NonNull
@@ -295,7 +317,7 @@ public class ChatActivity extends AppCompatActivity {
         String time = savetime + ":"+ savetime;
 
         if(message.isEmpty()){
-            messageEt.setError("Ecrivez votre message");
+            messageEt.setError(getString(R.string.donner_message));
             messageEt.requestFocus();
             return;
         }
@@ -318,5 +340,3 @@ public class ChatActivity extends AppCompatActivity {
 }
 
 
-
-//todo fix the image probleme in the recycle view

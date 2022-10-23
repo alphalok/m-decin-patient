@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,7 +30,7 @@ import java.util.ArrayList;
 
 public class PatientProfileActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private Button singoutBtn;
+    private FloatingActionButton singoutBtn;
 
     private FirebaseAuth auth;
     private DatabaseReference database ;
@@ -49,17 +50,17 @@ public class PatientProfileActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("voulez vous quitter l'application");
-        builder.setMessage("etes vous sur de vouloir quitter l'application");
+        builder.setTitle(getString(R.string.quite_app));
+        builder.setMessage(getString(R.string.quiter_application));
 
-        builder.setPositiveButton("Quitter", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getString(R.string.quitter), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 PatientProfileActivity.super.onBackPressed();
                 finish();
             }
         });
-        builder.setNegativeButton("Rester", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getString(R.string.rester), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 

@@ -86,7 +86,7 @@ public class SendImgActivity extends AppCompatActivity {
 
         }
         else {
-            Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.erreur), Toast.LENGTH_SHORT).show();
         }
 
         Picasso.get().load(url).into(imageView);
@@ -193,7 +193,7 @@ public class SendImgActivity extends AppCompatActivity {
 
 
         }else {
-            Toast.makeText(this, "sélectionnez une image", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.veuillez_sélectionner_image), Toast.LENGTH_SHORT).show();
         }
 
     }

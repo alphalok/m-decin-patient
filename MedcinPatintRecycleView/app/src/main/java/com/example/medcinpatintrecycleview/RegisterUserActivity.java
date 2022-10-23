@@ -158,47 +158,47 @@ public class RegisterUserActivity extends AppCompatActivity {
 
 
         if(numTel.length() != 10){
-            userPhoneNum.setError("Entrer un Numero Valide");
+            userPhoneNum.setError(getString(R.string.entrer_Numero_Valide));
             userPhoneNum.requestFocus();
             return;
         }
 
         if (cin.isEmpty()) {
-            patientUserCin.setError("entrer votre CIN");
+            patientUserCin.setError(getString(R.string.entrer_CIN));
             //patientUserCin.requestFocus();
             return;
         }
 
         if(fullName.isEmpty()){
-            UserFullName.setError("Entrer votre nom complet");
+            UserFullName.setError(getString(R.string.entrer_nom_complet));
                     UserFullName.requestFocus();
             return;
         }
 
         if (age.isEmpty()) {
-            patientUserAge.setError("entrer votre age");
+            patientUserAge.setError(getString(R.string.entrer_age));
             patientUserAge.requestFocus();
             return;
         }
         if (email.isEmpty()) {
-            patientUserEmail.setError("entrer votre email");
+            patientUserEmail.setError(getString(R.string.enter_email));
             patientUserEmail.requestFocus();
             return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            patientUserEmail.setError("donner un email valide");
+            patientUserEmail.setError(getString(R.string.donner_email_valide));
             patientUserEmail.requestFocus();
             return;
         }
 
         if (pwd.isEmpty()) {
-            patientUserPwd.setError("entrer votre mot de pass");
+            patientUserPwd.setError(getString(R.string.entrer_password));
             patientUserPwd.requestFocus();
             return;
         }
 
         if(confirmPwd.contains(pwd)){
-            patientUserConfirmPwd.setError("entrer un mot de pass valide");
+            patientUserConfirmPwd.setError(getString(R.string.match_passord));
             patientUserConfirmPwd.requestFocus();
             return;
         }
@@ -215,14 +215,14 @@ public class RegisterUserActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        Toast.makeText(RegisterUserActivity.this, " enregistrer", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(RegisterUserActivity.this, getString(R.string.enregistrer), Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
                                         //startActivity( new Intent(PatientRegisterActivity.this,MedecinProfileActivity.class));
                                         finish();
 
                                     }
                                     else{
-                                        Toast.makeText(RegisterUserActivity.this, "non enregister", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(RegisterUserActivity.this, getString(R.string.erreur), Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
                                     }
                                 }
@@ -230,7 +230,7 @@ public class RegisterUserActivity extends AppCompatActivity {
 
                 }
                 else{
-                    Toast.makeText(RegisterUserActivity.this, "Failed to register !! ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterUserActivity.this, getString(R.string.erreur), Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.GONE);
                 }
             }
@@ -244,19 +244,19 @@ public class RegisterUserActivity extends AppCompatActivity {
         String numTel = userPhoneNum.getText().toString().trim();
 
         if(numTel.length()!=10){
-            userPhoneNum.setError("Entrer un Numero Valide");
+            userPhoneNum.setError(getString(R.string.entrer_Numero_Valide));
             userPhoneNum.requestFocus();
             return;
         }
 
         if(numOrdre.isEmpty()){
-            medecinUserNumOrdre.setError("Entrer votre numero d'ordre");
+            medecinUserNumOrdre.setError(getString(R.string.entrer_num_ordre));
             medecinUserNumOrdre.requestFocus();
             return;
         }
 
         if(fullName.isEmpty()){
-            UserFullName.setError("Entrer votre nom complet");
+            UserFullName.setError(getString(R.string.entrer_nom_complet));
             UserFullName.requestFocus();
             return;
         }
@@ -266,37 +266,17 @@ public class RegisterUserActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(RegisterUserActivity.this, " Votre demande d'enregistrement sera vérifiée", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterUserActivity.this, getString(R.string.demande_being_verified), Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.GONE);
                     finish();
                 }
                 else{
-                    Toast.makeText(RegisterUserActivity.this, " Échec de l'inscription !! ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterUserActivity.this, getString(R.string.erreur), Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.GONE);
                 }
             }
         });
 
-
-
-        /*
-        progressBar.setVisibility(View.VISIBLE);
-
-        try {
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_VIEW);
-            intent.setPackage("com.whatsapp");
-            String url = "https://api.whatsapp.com/send?phone=" + "+212659584997" + "&text=" + "Demande d'Autorisation d'Inscription Au Tant qu'un MEDECIN :\n "+" \tNumero d'ordre :\t"+numOrdre +"\n"+"\t nom complet :\t" + fullName+"\n"+"\t Numero de telephone :\t"+numTel;
-            intent.setData(Uri.parse(url));
-            startActivity(intent);
-        }catch (Exception e){
-            Toast.makeText(this, "Probleme a survenue", Toast.LENGTH_SHORT).show();
-        }
-        progressBar.setVisibility(View.GONE);
-
-
-         */
-       // startActivity(new Intent(RegisterUserActivity.this,MedecinRegisterActivity.class));
     }
 
 }

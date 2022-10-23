@@ -25,7 +25,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Nom complet : "
+            android:text="@string/nom_complet"
             android:textSize="20dp"
             android:textStyle="bold|italic" />
 
@@ -37,34 +37,34 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_toRightOf="@+id/textViewFullN"
+            android:layout_toEndOf="@+id/textViewFullN"
             android:text="name"
             android:textSize="20dp"
             android:textStyle="bold|italic" />
 
         <TextView
-        android:id="@+id/textViewCI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textViewFullN"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="CIN : "
-        android:textSize="20dp"
-        android:textStyle="bold|italic" />
+            android:id="@+id/textViewCI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewFullN"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/cin"
+            android:textSize="20dp"
+            android:textStyle="bold|italic" />
 
         <TextView
             android:id="@+id/textViewMCIN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textViewFullNom"
-            android:layout_centerHorizontal="true"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
+            android:layout_toEndOf="@+id/textViewCI"
             android:text="CIN"
             android:textSize="20dp"
             android:textStyle="bold|italic" />
@@ -80,7 +80,7 @@
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/custtom_button_back"
-            android:text="Voir dossier"
+            android:text="@string/voir_dossier"
             android:textAllCaps="false"
             android:textStyle="bold|italic" />
 
@@ -93,9 +93,9 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="4dp"
             android:layout_marginBottom="5dp"
-            android:layout_toRightOf="@id/VoirDossierBtn"
+            android:layout_toEndOf="@+id/VoirDossierBtn"
             android:background="@drawable/custtom_button_back"
-            android:text="envoyer un message"
+            android:text="@string/envoyer_message"
             android:textAllCaps="false"
             android:textStyle="bold|italic" />
 

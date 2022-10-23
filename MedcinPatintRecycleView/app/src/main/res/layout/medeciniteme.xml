@@ -25,7 +25,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Nom complet : "
+            android:text="@string/nom_complet"
             android:textSize="20dp"
             android:textStyle="bold|italic" />
 
@@ -37,7 +37,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_toRightOf="@+id/textViewFullN"
+            android:layout_toEndOf="@+id/textViewFullN"
             android:text="name"
             android:textSize="20dp"
             android:textStyle="bold|italic" />
@@ -51,7 +51,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Num d'ordre : "
+            android:text="@string/Num_ordre"
             android:textSize="20dp"
             android:textStyle="bold|italic" />
 
@@ -60,12 +60,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textViewMFullNom"
-            android:layout_centerHorizontal="true"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_toRightOf="@+id/textViewFullN"
+            android:layout_toEndOf="@+id/textViewNO"
             android:text="Num d'ordre"
             android:textSize="20dp"
             android:textStyle="bold|italic" />
@@ -80,7 +79,7 @@
             android:layout_marginEnd="40dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/custtom_button_back"
-            android:text="Envoyer une Image"
+            android:text="@string/envoyer_message"
             android:textAllCaps="false"
             android:textSize="20dp"
             android:textStyle="bold|italic" />
