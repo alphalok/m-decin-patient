@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         cardView = findViewById(R.id.mainCardView);
-        cardView.animate().translationY(-1000).setDuration(500).setStartDelay(400);
 
         editTextEmail =findViewById(R.id.editTextAdminEmail);
         editTextPassword = findViewById(R.id.editTextAdminPassword);

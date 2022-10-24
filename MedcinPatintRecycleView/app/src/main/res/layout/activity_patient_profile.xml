@@ -7,6 +7,8 @@
     tools:context=".PatientProfileActivity"
     android:background="@drawable/gradient_background">
 
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/MedecinsRecycleView"
         android:layout_width="match_parent"

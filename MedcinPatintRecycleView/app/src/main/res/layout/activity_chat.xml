@@ -55,9 +55,12 @@
 
     <EditText
         android:id="@+id/MessageET"
-        android:layout_width="320dp"
-        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/custum_edittext_background"
         android:hint="@string/message"
         android:padding="10dp"
         android:textColor="@color/white"
@@ -66,21 +69,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
         app:layout_constraintHorizontal_bias="0.867"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/custum_edittext_background"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/camButton"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="5dp"
         android:background="@android:color/transparent"
         android:padding="10dp"
-        android:layout_marginBottom="5dp"
         android:src="@drawable/ic_baseline_camera"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/MessageET"
-        android:layout_margin="5dp"
-        android:layout_marginStart="2dp"/>
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
