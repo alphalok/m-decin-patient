@@ -25,6 +25,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.dynamiclinks.ShortDynamicLink;
 
+import java.util.Locale;
+
 public class RegisterUserActivity extends AppCompatActivity {
     private EditText userPhoneNum , patientUserCin, medecinUserNumOrdre , UserFullName,patientUserAge,patientUserEmail,patientUserPwd,patientUserConfirmPwd;
     private Button registerMedecinUser,registerPatientUser;
@@ -152,7 +154,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         String numTel = userPhoneNum.getText().toString().trim();
         String cin = patientUserCin.getText().toString().trim();
         String age = patientUserAge.getText().toString().trim();
-        String email= patientUserEmail.getText().toString().trim();
+        String email= patientUserEmail.getText().toString().trim().toLowerCase(Locale.ROOT);
         String pwd = patientUserPwd.getText().toString().trim();
         String confirmPwd=patientUserConfirmPwd.toString().trim();
 

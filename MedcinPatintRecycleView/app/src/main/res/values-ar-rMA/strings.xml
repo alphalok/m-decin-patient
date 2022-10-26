@@ -63,5 +63,12 @@
     <string name="enregistrer_medecin">تسجيل الطبيب</string>
 
 
+    <string name="supp_patient">حذف المريض</string>
+    <string name="suprrimer_patient">هل ترغب في إزالة المريض</string>
+    <string name="supprimer">حذف</string>
+    <string name="anuler">إلغاء</string>
+
+
+
 
 </resources>

@@ -80,22 +80,6 @@ public class NewMedecinAdapter extends RecyclerView.Adapter<NewMedecinAdapter.My
                 intent.putExtra("USER_TYPE",0);
                 context.startActivity(intent);
 
-/*
-                reference = FirebaseDatabase.getInstance().getReference().child("Users").child("newMedecin");
-                reference.child(medecin.getNumOrdre()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(context, "Médecin a été Accepter", Toast.LENGTH_SHORT).show();
-                            notifyDataSetChanged();
-                        }
-                        else {
-                            Toast.makeText(context, "Un probleme a survenu", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
- */
 
             }
         });

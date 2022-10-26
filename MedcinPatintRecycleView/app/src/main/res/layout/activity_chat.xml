@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ChatActivity">
+    tools:context=".ChatActivity"
+    android:background="#BDD0D8">
 
 
     <androidx.cardview.widget.CardView
@@ -40,7 +41,8 @@
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="68dp"
-        android:id="@+id/messagesRecycleView"/>
+        android:id="@+id/messagesRecycleView"
+       />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -51,7 +53,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints"
-        android:layout_marginBottom="5dp"/>
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"/>
 
     <EditText
         android:id="@+id/MessageET"
@@ -63,7 +66,7 @@
         android:background="@drawable/custum_edittext_background"
         android:hint="@string/message"
         android:padding="10dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textColorHint="@color/Blue_light"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

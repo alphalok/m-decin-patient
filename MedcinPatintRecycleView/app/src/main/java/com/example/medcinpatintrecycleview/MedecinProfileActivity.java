@@ -33,6 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MedecinProfileActivity extends AppCompatActivity {
 
@@ -157,6 +158,7 @@ public class MedecinProfileActivity extends AppCompatActivity {
                 Intent intent = new Intent(new Intent(MedecinProfileActivity.this,AddPatientActivity.class));
                 intent.putExtra("USER_TYPE",1);
                 startActivity(intent);
+                finish();
 
             }
         });
@@ -185,7 +187,7 @@ public class MedecinProfileActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                txtSearch(editable.toString());
+                txtSearch(editable.toString().toLowerCase(Locale.ROOT));
 
             }
         });

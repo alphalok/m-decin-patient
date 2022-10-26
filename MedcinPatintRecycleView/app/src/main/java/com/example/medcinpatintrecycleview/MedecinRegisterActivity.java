@@ -28,6 +28,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
 
+import java.util.Locale;
+
 public class MedecinRegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth mAuth;
 
@@ -119,7 +121,7 @@ public class MedecinRegisterActivity extends AppCompatActivity implements View.O
     }
 
     private void registerUser() {
-        String email = editTextemail.getText().toString().trim();
+        String email = editTextemail.getText().toString().trim().toLowerCase(Locale.ROOT);
        // Integer numTel =Integer.parseInt(editTextNumTel.getText().toString());
         String fullName = editTextfullName.getText().toString().trim();
         String password = editTextpassword.getText().toString().trim();

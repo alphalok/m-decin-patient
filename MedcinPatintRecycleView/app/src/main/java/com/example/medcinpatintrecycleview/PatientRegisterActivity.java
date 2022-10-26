@@ -26,6 +26,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
 
+import java.util.Locale;
+
 public class PatientRegisterActivity extends AppCompatActivity {
 
     private EditText editTextemail, editTextage, editTextFullName, editTextCIN, editTextPassword, editTextNumTelephone, editTextConfirmPassword;
@@ -108,7 +110,7 @@ public class PatientRegisterActivity extends AppCompatActivity {
 
     private void registerUser() {
 
-        String email = editTextemail.getText().toString().trim();
+        String email = editTextemail.getText().toString().trim().toLowerCase(Locale.ROOT);
         String age = editTextage.getText().toString().trim();
         String fullName = editTextFullName.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();

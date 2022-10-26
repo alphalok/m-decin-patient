@@ -62,6 +62,15 @@
     <string name="donner_message">Ecrivez votre message</string>
 
 
+    <string name="supp_patient">Suppression du patient</string>
+    <string name="suprrimer_patient">Souhaitez-vous retirer le patient de votre sous-traitance</string>
+
+    <string name="supprimer">Supprimer</string>
+    <string name="anuler">Anuler</string>
+
+
+
+
 
 
 

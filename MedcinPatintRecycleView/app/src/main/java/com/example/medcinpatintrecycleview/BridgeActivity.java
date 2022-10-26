@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -58,7 +59,7 @@ public class BridgeActivity extends AppCompatActivity {
 
 
                             } catch (Exception exception) {
-                                Log.d("exception", exception.toString());
+                                Toast.makeText(BridgeActivity.this, exception.toString(), Toast.LENGTH_SHORT).show();
                             }
 
                         }
@@ -68,6 +69,7 @@ public class BridgeActivity extends AppCompatActivity {
                 .addOnFailureListener(this, new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(BridgeActivity.this, getString(R.string.erreur), Toast.LENGTH_SHORT).show();
                         Log.e("Patient Registration", "getDynamicLink:onFailure", e);
                     }
                 });

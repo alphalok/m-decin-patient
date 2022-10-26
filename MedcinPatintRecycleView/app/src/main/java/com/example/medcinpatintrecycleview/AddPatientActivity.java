@@ -168,16 +168,17 @@ public class AddPatientActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if(snapshot.child(cin).exists()){
-                                reference.child("medecins").child(userUid).child("medcinPatients").push().setValue(cin);
+                                reference.child("medecins").child(userUid).child("medcinPatients").child(cin).setValue(cin);
                                 reference.child("patients").child(cin).child("patientMedcins").push().setValue(userUid);
                                 Toast.makeText(AddPatientActivity.this, "Patient a été  enregistrer", Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.GONE);
-                                startActivity(new Intent(AddPatientActivity.this,MedecinProfileActivity.class));
-                                finish();
                             }
                             else {
+                                sharReferalLinkToPatient(cin, phoneNumber);
                                 registerNewUser(cin,phoneNumber);
                             }
+                            startActivity(new Intent(AddPatientActivity.this,MedecinProfileActivity.class));
+                            finish();
                         }
 
                         @Override
@@ -212,7 +213,7 @@ public class AddPatientActivity extends AppCompatActivity {
 
     private void registerNewUser(String cin,String phoneNumber) {
 
-        sharReferalLinkToPatient(cin, phoneNumber);
+
 
         reference = FirebaseDatabase.getInstance().getReference("Users");
         reference.child("medecins").child(userUid).child("medcinPatients").push().setValue(cin);
@@ -225,6 +226,7 @@ public class AddPatientActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        startActivity(new Intent(AddPatientActivity.this,MedecinProfileActivity.class));
         finish();
     }
 

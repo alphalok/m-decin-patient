@@ -18,6 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Locale;
+
 public class AddAdminActivity extends AppCompatActivity {
 
     private EditText adminEmail,adminPwd;
@@ -54,7 +56,7 @@ public class AddAdminActivity extends AppCompatActivity {
 
     private void makeAdmin() {
 
-        String email = adminEmail.getText().toString().trim();
+        String email = adminEmail.getText().toString().trim().toLowerCase(Locale.ROOT);
         String password = adminPwd.getText().toString().trim();
 
         if(email.isEmpty()){

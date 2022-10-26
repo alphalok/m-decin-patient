@@ -31,6 +31,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText editTextEmail,editTextPassword;
     private TextView testViewRegister,testViewResetPassword;
@@ -128,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void userLogin() {
-        String email = editTextEmail.getText().toString().trim();
+        String email = editTextEmail.getText().toString().trim().toLowerCase(Locale.ROOT);
         String password = editTextPassword.getText().toString().trim();
 
         if(email.isEmpty()){
@@ -329,3 +331,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         builder.show();
     }
 }
+
+//todo supprimer pat

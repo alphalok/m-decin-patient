@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Locale;
+
 public class ResetPasswordActivity extends AppCompatActivity {
 
     private EditText emailEditText;
@@ -77,7 +79,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
     }
 
     private void resetPassword() {
-        String email = emailEditText.getText().toString().trim();
+        String email = emailEditText.getText().toString().trim().toLowerCase(Locale.ROOT);
 
         if(email.isEmpty()){
             emailEditText.setError(getString(R.string.enter_email));

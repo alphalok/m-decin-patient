@@ -2,15 +2,26 @@ package com.example.medcinpatintrecycleview;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -18,6 +29,8 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
 
     private Context context;
     private ArrayList<Patient> patients = new ArrayList<>();
+    private DatabaseReference reference;
+    private FirebaseAuth auth = FirebaseAuth.getInstance();
 
     public void setPatients(ArrayList<Patient> patients) {
         this.patients = patients;
@@ -73,6 +86,55 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
                 context.startActivity(intent);
             }
         });
+
+        holder.relativeLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle(context.getString(R.string.supp_patient));
+                builder.setMessage(context.getString(R.string.suprrimer_patient));
+
+                builder.setPositiveButton(context.getString(R.string.supprimer), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                        reference = FirebaseDatabase.getInstance().getReference().child("Users").child("medecins").child(auth.getCurrentUser().getUid()).child("medcinPatients");
+
+                        reference.child(patient.getCin()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    Toast.makeText(context, "Patient a été supprimer", Toast.LENGTH_SHORT).show();
+                                    context.startActivity(new Intent(context,MedecinProfileActivity.class));
+                                    ((Activity)context).finish();
+                                }
+                                else {
+                                    Toast.makeText(context,context.getString(R.string.erreur), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+
+
+                    }
+                });
+                builder.setNegativeButton(context.getString(R.string.anuler), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                builder.show();
+
+
+                return true;
+            }
+        });
+
+
     }
 
     @Override
@@ -85,6 +147,8 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
        private Button voirDossier;
        private Button sendMessage;
 
+       private RelativeLayout relativeLayout;
+
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -94,6 +158,9 @@ public class PatientAdapter extends RecyclerView.Adapter<PatientAdapter.MyViewHo
 
             voirDossier =itemView.findViewById(R.id.VoirDossierBtn);
             sendMessage = itemView.findViewById(R.id.SendMessageBtn);
+
+            relativeLayout=itemView.findViewById(R.id.relativeLayoutP);
+
 
         }
 
